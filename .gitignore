@@ -1,6 +1,18 @@
+# Intellij IDEA files #
+#######################
+.idea
+*.iml
+
+# maven files #
+#######################
+target
+
+# java class files #
+#######################
 *.class
 
 # Package Files #
+#######################
 *.jar
 *.war
 *.ear
