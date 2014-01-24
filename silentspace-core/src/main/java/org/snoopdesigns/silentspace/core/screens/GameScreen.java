@@ -42,5 +42,11 @@ public class GameScreen extends Screen{
         if(input.isKeyPressed(InputHandler.RIGHT) || input.isKeyReleased(InputHandler.RIGHT)) {
             playerShip.moveRight();
         }
+        if(input.isKeyPressed(InputHandler.UP) || input.isKeyReleased(InputHandler.UP)) {
+            playerShip.moveUp();
+        }
+        if(input.isKeyPressed(InputHandler.DOWN) || input.isKeyReleased(InputHandler.DOWN)) {
+            playerShip.moveDown();
+        }
     }
 }
