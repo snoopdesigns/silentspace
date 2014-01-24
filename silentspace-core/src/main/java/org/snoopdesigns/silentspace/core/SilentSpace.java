@@ -3,6 +3,7 @@ package org.snoopdesigns.silentspace.core;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL10;
+import com.badlogic.gdx.graphics.g2d.ParticleEffect;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import org.snoopdesigns.silentspace.core.bg.BackgroundRenderer;
 
@@ -12,6 +13,7 @@ public class SilentSpace implements ApplicationListener {
     private BackgroundRenderer bgRenderer;
     private PlayerShip playerShip;
     private final InputHandler input = new InputHandler(this);
+    private ParticleEffect p;
 
 	@Override
 	public void create () {
@@ -19,6 +21,8 @@ public class SilentSpace implements ApplicationListener {
         bgRenderer = new BackgroundRenderer();
         playerShip = new PlayerShip();
         Gdx.input.setInputProcessor(input);
+        p = new ParticleEffect();
+        p.load(Gdx.files.internal("effects/rocket.p"), Gdx.files.internal("effects"));
 	}
 
 	@Override
@@ -33,6 +37,9 @@ public class SilentSpace implements ApplicationListener {
 		batch.begin();
         bgRenderer.processBackground(batch);
 		playerShip.processShip(batch);
+        p.setPosition(playerShip.x+43,playerShip.y);
+        p.update(Gdx.graphics.getDeltaTime());
+        p.draw(batch);
 		batch.end();
         bgRenderer.processStars();
 	}
