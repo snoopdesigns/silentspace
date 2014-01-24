@@ -13,7 +13,7 @@ public abstract class Screen {
 
     public abstract void tick(InputHandler input);
 
-    protected void setScreen (Screen screen) {
+    public void setScreen (Screen screen) {
         main.setScreen(screen);
     }
 

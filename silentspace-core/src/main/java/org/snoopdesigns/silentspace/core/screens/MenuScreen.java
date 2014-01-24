@@ -1,24 +1,27 @@
 package org.snoopdesigns.silentspace.core.screens;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import org.snoopdesigns.silentspace.core.InputHandler;
+import org.snoopdesigns.silentspace.core.mainmenu.MainMenu;
+import org.snoopdesigns.silentspace.core.bg.BackgroundRenderer;
 
 public class MenuScreen extends Screen{
 
     private SpriteBatch batch;
-    private Texture bgTexture;
+    private BackgroundRenderer bg;
+    private MainMenu menu;
 
     public MenuScreen() {
         batch = new SpriteBatch();
-        bgTexture = new Texture(Gdx.files.internal("bg.jpg"));
+        bg = new BackgroundRenderer();
+        menu = new MainMenu(this);
     }
 
     @Override
     public void render() {
         batch.begin();
-        batch.draw(bgTexture, 0, 0);
+        bg.processBackground(batch);
+        menu.processMenu(batch);
         batch.end();
     }
 
@@ -28,8 +31,12 @@ public class MenuScreen extends Screen{
 
     @Override
     public void tick(InputHandler input) {
-        if(input.isKeyPressed(InputHandler.ENTER)) {
-            setScreen(new GameScreen());
+        menu.selectMenu(menu.isPointerOnMenuItem(input.getMouseInfo().mousex, input.getMouseInfo().mousey));
+        if(input.isMousePressed(InputHandler.MOUSE_LEFT)) {
+            int menuItemId = menu.isPointerOnMenuItem(input.getMouseInfo().leftBtnDownInfo[0],
+                input.getMouseInfo().leftBtnDownInfo[1]);
+            if(menuItemId != -1) menu.clickMenu(menuItemId);
         }
+        input.tick();
     }
 }

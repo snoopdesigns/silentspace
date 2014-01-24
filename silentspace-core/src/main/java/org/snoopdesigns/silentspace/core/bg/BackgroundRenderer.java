@@ -24,7 +24,6 @@ public class BackgroundRenderer {
         rand = new Random();
         bgTexture = new Texture(Gdx.files.internal("bg.jpg"));
         bgX = rand.nextInt(bgTexture.getWidth()- SilentSpaceConfig.GAME_WINDOW_WIDTH);
-        System.out.println("Bg X coordinate: " + bgX);
         BG_HEIGHT = bgTexture.getHeight();
         curYdown = 0;
         curYup = BG_HEIGHT;
@@ -38,7 +37,6 @@ public class BackgroundRenderer {
         if(curYup < 0) {
             curYdown = curYup;
             curYup = curYdown + BG_HEIGHT;
-            System.out.println("BG Change!");
         }
         batch.draw(bgTexture, -bgX, curYdown);
         batch.draw(bgTexture, -bgX, curYup);
