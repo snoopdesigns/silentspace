@@ -1,25 +1,24 @@
 package org.snoopdesigns.silentspace.core;
 
-import com.badlogic.gdx.graphics.GL10;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.ParticleEffect;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.graphics.GL10;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import org.snoopdesigns.silentspace.core.bg.BackgroundRenderer;
 
 public class SilentSpace implements ApplicationListener {
-	Texture texture;
 	SpriteBatch batch;
 	float elapsed;
     private BackgroundRenderer bgRenderer;
+    private PlayerShip playerShip;
+    private final InputHandler input = new InputHandler(this);
 
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
         bgRenderer = new BackgroundRenderer();
-        texture = new Texture(Gdx.files.internal("ship.png"));
+        playerShip = new PlayerShip();
+        Gdx.input.setInputProcessor(input);
 	}
 
 	@Override
@@ -33,7 +32,7 @@ public class SilentSpace implements ApplicationListener {
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
 		batch.begin();
         bgRenderer.processBackground(batch);
-		batch.draw(texture, 100+100*(float)Math.cos(elapsed), 100+25*(float)Math.sin(elapsed));
+		playerShip.processShip(batch);
 		batch.end();
         bgRenderer.processStars();
 	}
@@ -49,4 +48,8 @@ public class SilentSpace implements ApplicationListener {
 	@Override
 	public void dispose () {
 	}
+
+    public PlayerShip getPlayerShip() {
+        return this.playerShip;
+    }
 }

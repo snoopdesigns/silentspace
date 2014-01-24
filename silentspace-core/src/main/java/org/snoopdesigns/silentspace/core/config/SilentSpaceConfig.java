@@ -6,4 +6,6 @@ public class SilentSpaceConfig {
 
     public static final int GAME_WINDOW_HEIGHT = 480;
     public static final int GAME_WINDOW_WIDTH = 640;
+
+    public static final int SHIP_MOVE_SPEED = 200;
 }
