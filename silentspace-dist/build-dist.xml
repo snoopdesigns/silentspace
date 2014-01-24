@@ -1,0 +1,30 @@
+<project name="build-dist" basedir="." default="build-dist">
+
+    <target name="build-dist" depends="clean-target, make-dist-dir, copy-dist, copy-config"/>
+
+    <target name="clean-target">
+        <delete dir="${basedir}/dist"/>
+    </target>
+
+    <target name="make-dist-dir">
+        <mkdir dir="dist"/>
+    </target>
+
+    <target name="copy-dist">
+        <copy todir="dist" failonerror="true">
+            <fileset file="${org.snoopdesigns.silentspace:silentspace-desktop-app:jar:jar-with-dependencies}"/>
+            <mapper type="flatten" />
+        </copy>
+    </target>
+
+    <target name="copy-config">
+        <mkdir dir="dist/config"/>
+        <copy todir="dist/config" failonerror="true">
+            <fileset dir="config">
+                <include name="**"/>
+            </fileset>
+        </copy>
+    </target>
+
+
+</project>

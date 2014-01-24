@@ -23,7 +23,7 @@ public class BackgroundRenderer {
     public BackgroundRenderer() {
         rand = new Random();
         bgTexture = new Texture(Gdx.files.internal("bg.jpg"));
-        bgX = rand.nextInt(bgTexture.getWidth()-SilentSpaceConfig.GAME_WINDOW_WIDTH);
+        bgX = rand.nextInt(bgTexture.getWidth()- SilentSpaceConfig.GAME_WINDOW_WIDTH);
         System.out.println("Bg X coordinate: " + bgX);
         BG_HEIGHT = bgTexture.getHeight();
         curYdown = 0;

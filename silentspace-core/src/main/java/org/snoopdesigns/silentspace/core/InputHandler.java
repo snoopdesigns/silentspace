@@ -16,7 +16,6 @@ public class InputHandler implements InputProcessor{
 
     @Override
     public boolean keyDown(int key) {
-        System.out.println("keyDown(): " + key);
         if (key == Input.Keys.DPAD_LEFT) renderer.getPlayerShip().moveLeft();
         if (key == Input.Keys.DPAD_RIGHT) renderer.getPlayerShip().moveRight();
         return false;

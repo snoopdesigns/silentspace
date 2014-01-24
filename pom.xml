@@ -40,5 +40,6 @@
 	<modules>
 		<module>silentspace-core</module>
         <module>silentspace-desktop-app</module>
+        <module>silentspace-dist</module>
 	</modules>
 </project>
