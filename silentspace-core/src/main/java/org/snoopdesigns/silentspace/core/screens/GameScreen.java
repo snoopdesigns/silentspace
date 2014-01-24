@@ -3,6 +3,7 @@ package org.snoopdesigns.silentspace.core.screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import org.snoopdesigns.silentspace.core.InputHandler;
+import org.snoopdesigns.silentspace.core.MissilesProcessor;
 import org.snoopdesigns.silentspace.core.PlayerShip;
 import org.snoopdesigns.silentspace.core.bg.BackgroundRenderer;
 
@@ -12,11 +13,13 @@ public class GameScreen extends Screen{
     float elapsed;
     private BackgroundRenderer bgRenderer;
     private PlayerShip playerShip;
+    private MissilesProcessor missilesProcessor;
 
     public GameScreen() {
         batch = new SpriteBatch();
         bgRenderer = new BackgroundRenderer();
         playerShip = new PlayerShip();
+        missilesProcessor = new MissilesProcessor();
     }
 
     @Override
@@ -25,6 +28,7 @@ public class GameScreen extends Screen{
         batch.begin();
         bgRenderer.processBackground(batch);
         playerShip.processShip(batch);
+        missilesProcessor.process(batch);
         batch.end();
         bgRenderer.processStars();
     }
@@ -47,6 +51,10 @@ public class GameScreen extends Screen{
         }
         if(input.isKeyPressed(InputHandler.DOWN) || input.isKeyReleased(InputHandler.DOWN)) {
             playerShip.moveDown();
+        }
+        if(input.isKeyPressed(InputHandler.SPACE)) {
+            System.out.println("Shooting..");
+            missilesProcessor.addActiveMissile(playerShip.fireActiveWeapon());
         }
     }
 }

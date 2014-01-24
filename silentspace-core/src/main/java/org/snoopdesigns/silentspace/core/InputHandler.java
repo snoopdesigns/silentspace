@@ -11,6 +11,9 @@ public class InputHandler implements InputProcessor{
     public static final int RIGHT = 3;
 
     public static final int ENTER = 4;
+    public static final int SPACE = 5;
+    public static final int ESCAPE = 6;
+
 
     public static final int MOUSE_LEFT = 0;
     public static final int MOUSE_RIGHT = 1;
@@ -39,6 +42,8 @@ public class InputHandler implements InputProcessor{
         if (key == Input.Keys.DPAD_DOWN) button = DOWN;
         if (key == Input.Keys.DPAD_RIGHT) button = RIGHT;
         if (key == Input.Keys.ENTER) button = ENTER;
+        if (key == Input.Keys.SPACE) button = SPACE;
+        if (key == Input.Keys.ESCAPE) button = ESCAPE;
 
         if (button >= 0) {
             buttons[button] = down;
