@@ -2,9 +2,11 @@ package org.snoopdesigns.silentspace.core;
 
 import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.ParticleEffect;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import org.snoopdesigns.silentspace.core.bg.BackgroundRenderer;
 
 public class SilentSpace implements ApplicationListener {
@@ -33,6 +35,7 @@ public class SilentSpace implements ApplicationListener {
         bgRenderer.processBackground(batch);
 		batch.draw(texture, 100+100*(float)Math.cos(elapsed), 100+25*(float)Math.sin(elapsed));
 		batch.end();
+        bgRenderer.processStars();
 	}
 
 	@Override
