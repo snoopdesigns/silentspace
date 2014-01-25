@@ -30,7 +30,7 @@ public class GameScreen extends Screen{
         playerShip.processShip(batch);
         missilesProcessor.process(batch);
         batch.end();
-        bgRenderer.processStars();
+        //bgRenderer.processStars();
     }
 
     @Override

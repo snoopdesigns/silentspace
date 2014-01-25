@@ -1,5 +1,6 @@
 package org.snoopdesigns.silentspace.core.weapons;
 
+import org.snoopdesigns.silentspace.core.weapons.missiles.BlasterMissile;
 import org.snoopdesigns.silentspace.core.weapons.missiles.Missile;
 import org.snoopdesigns.silentspace.core.weapons.missiles.SimpleMissile;
 
@@ -15,6 +16,6 @@ public class BlasterGun extends Weapon{
 
     @Override
     public Missile getMissileType() {
-        return new SimpleMissile();
+        return new BlasterMissile();
     }
 }

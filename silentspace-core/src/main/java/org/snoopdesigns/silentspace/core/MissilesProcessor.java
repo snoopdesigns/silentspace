@@ -20,7 +20,6 @@ public class MissilesProcessor {
                 activeMissiles.remove(i);
                 System.out.println("Removing missile");
             } else {
-                System.out.println("Processing missile:");
                 activeMissiles.get(i).processMissile(batch);
             }
         }

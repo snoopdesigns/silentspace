@@ -5,25 +5,27 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.ParticleEffect;
 import com.badlogic.gdx.utils.Array;
 
-public class SimpleMissile extends Missile{
+public class BlasterMissile extends Missile{
 
     Array<MissileInfo> info = new Array<MissileInfo>();
 
-    public SimpleMissile() {
+    public BlasterMissile() {
         super();
-        MissileInfo mis = new MissileInfo(0, 0, 300 ,0);
-        info.add(mis);
     }
 
-    public SimpleMissile(int x, int y) {
-        MissileInfo mis = new MissileInfo(x+43-getMissileTexture().getWidth()/2,
-                y+80-getMissileTexture().getHeight()/2,300,0);
+    public BlasterMissile(int x, int y) {
+        super();
+        MissileInfo mis = new MissileInfo(x+43,y+80,300,0);
+        info.add(mis);
+        mis = new MissileInfo(x+6,y+48,300,0);
+        info.add(mis);
+        mis = new MissileInfo(x+79,y+48,300,0);
         info.add(mis);
     }
 
     @Override
     public Missile newInstance(int x, int y) {
-        return new SimpleMissile(x,y);
+        return new BlasterMissile(x,y);
     }
 
     @Override
@@ -33,21 +35,23 @@ public class SimpleMissile extends Missile{
 
     @Override
     public Texture getMissileTexture() {
-        return new Texture(Gdx.files.internal("rocket.png"));
-    }
-
-    @Override
-    public boolean useTexture() {
-        return true;
-    }
-
-    @Override
-    public ParticleEffect getParticleEffect() {
         return null;
     }
 
     @Override
+    public boolean useTexture() {
+        return false;
+    }
+
+    @Override
+    public ParticleEffect getParticleEffect() {
+        ParticleEffect effect = new ParticleEffect();
+        effect.load(Gdx.files.internal("weapons/blaster.p"), Gdx.files.internal("weapons"));
+        return effect;
+    }
+
+    @Override
     public int getMissilesPerShot() {
-        return 1;
+        return 3;
     }
 }

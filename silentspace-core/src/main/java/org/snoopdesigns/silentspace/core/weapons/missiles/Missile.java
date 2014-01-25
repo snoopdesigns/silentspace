@@ -2,19 +2,36 @@ package org.snoopdesigns.silentspace.core.weapons.missiles;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.ParticleEffect;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.Array;
 import org.snoopdesigns.silentspace.core.config.SilentSpaceConfig;
 
 public abstract class Missile {
 
+    private Array<ParticleEffect> particleEffects;
+
+    public Missile() {
+        if(!this.useTexture()) {
+            particleEffects = new Array<ParticleEffect>();
+            for(int i=0;i<this.getMissilesPerShot();i++) {
+                particleEffects.add(this.getParticleEffect());
+            }
+
+        }
+    }
+
     public void processMissile(SpriteBatch batch) {
         for(int i=0;i<this.getMissilesInfo().size;i++) {
-            System.out.println("Moving missile: " + this.getMissilesInfo().get(i).y + " " + this.getMissilesInfo().get(i).speed);
             this.getMissilesInfo().get(i).y += (this.getMissilesInfo().get(i).speed * Gdx.graphics.getDeltaTime());
-            batch.draw(this.getMissileTexture(), this.getMissilesInfo().get(i).x,
-                    this.getMissilesInfo().get(i).y);
-            System.out.println("Moving missile: " + this.getMissilesInfo().get(i).y + " " + (this.getMissilesInfo().get(i).speed * Gdx.graphics.getDeltaTime()));
+            if(this.useTexture()) {
+                batch.draw(this.getMissileTexture(), this.getMissilesInfo().get(i).x,
+                        this.getMissilesInfo().get(i).y);
+            } else {
+                particleEffects.get(i).setPosition(this.getMissilesInfo().get(i).x, this.getMissilesInfo().get(i).y);
+                particleEffects.get(i).update(Gdx.graphics.getDeltaTime());
+                particleEffects.get(i).draw(batch);
+            }
         }
         for(int i=0;i<this.getMissilesInfo().size;i++) {
             if(!checkBounds(this.getMissilesInfo().get(i).x, this.getMissilesInfo().get(i).y)) {
@@ -28,6 +45,9 @@ public abstract class Missile {
     public abstract Missile newInstance(int x, int y);
     public abstract Array<MissileInfo> getMissilesInfo();
     public abstract Texture getMissileTexture();
+    public abstract boolean useTexture();
+    public abstract ParticleEffect getParticleEffect();
+    public abstract int getMissilesPerShot();
 
     private boolean checkBounds(float x, float y) {
         if(x > 0 && x < SilentSpaceConfig.GAME_WINDOW_WIDTH &&
