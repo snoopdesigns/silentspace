@@ -23,7 +23,10 @@ public abstract class Missile {
 
     public void processMissile(SpriteBatch batch) {
         for(int i=0;i<this.getMissilesInfo().size;i++) {
-            this.getMissilesInfo().get(i).y += (this.getMissilesInfo().get(i).speed * Gdx.graphics.getDeltaTime());
+            //this.getMissilesInfo().get(i).y += (this.getMissilesInfo().get(i).speed * Gdx.graphics.getDeltaTime());
+            float dist = (this.getMissilesInfo().get(i).speed * Gdx.graphics.getDeltaTime());
+            this.getMissilesInfo().get(i).y += Math.cos(Math.toRadians(this.getMissilesInfo().get(i).angle)) * dist;
+            this.getMissilesInfo().get(i).x += Math.sin(Math.toRadians(this.getMissilesInfo().get(i).angle)) * dist;
             if(this.useTexture()) {
                 batch.draw(this.getMissileTexture(), this.getMissilesInfo().get(i).x,
                         this.getMissilesInfo().get(i).y);

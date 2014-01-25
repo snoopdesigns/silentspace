@@ -17,9 +17,9 @@ public class BlasterMissile extends Missile{
         super();
         MissileInfo mis = new MissileInfo(x+43,y+80,300,0);
         info.add(mis);
-        mis = new MissileInfo(x+6,y+48,300,0);
+        mis = new MissileInfo(x+6,y+48,300,-30);
         info.add(mis);
-        mis = new MissileInfo(x+79,y+48,300,0);
+        mis = new MissileInfo(x+79,y+48,300,30);
         info.add(mis);
     }
 
