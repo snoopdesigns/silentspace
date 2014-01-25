@@ -24,9 +24,11 @@ public class PlayerShip {
     private boolean movingDown;
     private ParticleEffect engineLeft;
     private ParticleEffect engineRight;
-    List<Weapon> playerWeapons;
+    private List<Weapon> playerWeapons;
+    private PlayerHUD playerHUD;
 
     public PlayerShip() {
+        playerHUD = new PlayerHUD();
         playerWeapons = new ArrayList<Weapon>();
         playerWeapons.add(new BlasterGun("Blaster Gun"));
         shipTexture = new Texture(Gdx.files.internal("ship.png"));
@@ -62,6 +64,7 @@ public class PlayerShip {
         engineRight.setPosition(x+48,y+3);
         engineRight.update(Gdx.graphics.getDeltaTime());
         engineRight.draw(batch);
+        playerHUD.render(batch);
     }
 
     public boolean checkBounds(float x, float y) {

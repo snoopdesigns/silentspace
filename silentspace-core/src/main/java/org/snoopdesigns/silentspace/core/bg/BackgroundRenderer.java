@@ -46,12 +46,15 @@ public class BackgroundRenderer {
         this.generateStars();
         List<Integer> toRemove = new ArrayList<Integer>();
         for(int i=0;i<stars.size();i++) {
-            if(stars.get(i).y < 0) toRemove.add(i);
-            starsRenderer.begin(ShapeRenderer.ShapeType.Filled);
-            starsRenderer.setColor(1, 1, 1, 1);
-            stars.get(i).y -= (stars.get(i).speed * Gdx.graphics.getDeltaTime());
-            starsRenderer.circle(stars.get(i).x, stars.get(i).y, stars.get(i).size);
-            starsRenderer.end();
+            if(stars.get(i).y < 0) {
+                toRemove.add(i);
+            } else {
+                starsRenderer.begin(ShapeRenderer.ShapeType.Filled);
+                starsRenderer.setColor(1, 1, 1, 1);
+                stars.get(i).y -= (stars.get(i).speed * Gdx.graphics.getDeltaTime());
+                starsRenderer.circle(stars.get(i).x, stars.get(i).y, stars.get(i).size);
+                starsRenderer.end();
+            }
         }
         for(int i=0;i<toRemove.size();i++) {
             stars.remove(toRemove.get(i));

@@ -18,7 +18,6 @@ public class MissilesProcessor {
         for(int i=0;i<activeMissiles.size();i++) {
             if(activeMissiles.get(i).isMissileInactive()) {
                 activeMissiles.remove(i);
-                System.out.println("Removing missile");
             } else {
                 activeMissiles.get(i).processMissile(batch);
             }

@@ -27,10 +27,12 @@ public class GameScreen extends Screen{
         elapsed += Gdx.graphics.getDeltaTime();
         batch.begin();
         bgRenderer.processBackground(batch);
-        playerShip.processShip(batch);
         missilesProcessor.process(batch);
         batch.end();
-        //bgRenderer.processStars();
+        bgRenderer.processStars();
+        batch.begin();
+        playerShip.processShip(batch);
+        batch.end();
     }
 
     @Override
@@ -53,7 +55,6 @@ public class GameScreen extends Screen{
             playerShip.moveDown();
         }
         if(input.isKeyPressed(InputHandler.SPACE)) {
-            System.out.println("Shooting..");
             missilesProcessor.addActiveMissile(playerShip.fireActiveWeapon());
         }
     }
