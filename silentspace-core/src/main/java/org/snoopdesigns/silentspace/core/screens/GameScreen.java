@@ -6,6 +6,7 @@ import org.snoopdesigns.silentspace.core.InputHandler;
 import org.snoopdesigns.silentspace.core.MissilesProcessor;
 import org.snoopdesigns.silentspace.core.PlayerShip;
 import org.snoopdesigns.silentspace.core.bg.BackgroundRenderer;
+import org.snoopdesigns.silentspace.core.weapons.missiles.Missile;
 
 public class GameScreen extends Screen{
 
@@ -55,7 +56,10 @@ public class GameScreen extends Screen{
             playerShip.moveDown();
         }
         if(input.isKeyPressed(InputHandler.SPACE)) {
-            missilesProcessor.addActiveMissile(playerShip.fireActiveWeapon());
+            Missile mis = playerShip.fireActiveWeapon();
+            if(mis != null) {
+                missilesProcessor.addActiveMissile(mis);
+            }
         }
     }
 }

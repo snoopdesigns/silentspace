@@ -17,6 +17,10 @@ public class PlayerHUD {
     private String playerHealth;
     private String playerWeaponName;
     private String playerAmmoCount;
+    private Texture ammoTexture;
+    private Texture weaponTexture;
+    private Texture healthTexture;
+    private Texture healthPixel;
 
     public void setPlayerHealth(String playerHealth) {
         this.playerHealth = playerHealth;
@@ -32,34 +36,29 @@ public class PlayerHUD {
 
     public PlayerHUD() {
         bgTexture = new Texture(Gdx.files.internal("hud_bg.png"));
+        ammoTexture = new Texture(Gdx.files.internal("hud1.png"));
+        weaponTexture = new Texture(Gdx.files.internal("hud2.png"));
+        healthTexture = new Texture(Gdx.files.internal("hud3.png"));
+        healthPixel = new Texture(Gdx.files.internal("health_item.png"));
         hudRenderer = new ShapeRenderer();
         font = new BitmapFont(Gdx.files.internal("fonts/calibri.fnt"),
                 Gdx.files.internal("fonts/calibri.png"),false);
-        font.setScale(0.35f, 0.35f);
+        font.setScale(0.6f, 0.6f);
     }
 
     public void render(SpriteBatch batch) {
         batch.draw(bgTexture, 0, SilentSpaceConfig.GAME_WINDOW_HEIGHT - bgTexture.getHeight());
-        this.drawSimpleBox(batch, 20, 100, "Weapon: " + playerWeaponName, 13);
-        this.drawSimpleBox(batch, SilentSpaceConfig.GAME_WINDOW_WIDTH-120, 100, "Ammo: " + playerAmmoCount, 27);
-        this.drawSimpleBox(batch, 140, SilentSpaceConfig.GAME_WINDOW_WIDTH - 280, "", 0);
+        batch.draw(ammoTexture, 10, SilentSpaceConfig.GAME_WINDOW_HEIGHT - 47);
+        font.draw(batch, playerAmmoCount, 58, SilentSpaceConfig.GAME_WINDOW_HEIGHT - 47 + 27);
+        batch.draw(weaponTexture, 111, SilentSpaceConfig.GAME_WINDOW_HEIGHT - 47);
+        font.draw(batch, playerWeaponName, 158, SilentSpaceConfig.GAME_WINDOW_HEIGHT - 47 + 27);
+        batch.draw(healthTexture, 260, SilentSpaceConfig.GAME_WINDOW_HEIGHT - 47);
+        drawHealthPixels(batch);
     }
 
-    private void drawSimpleBox(SpriteBatch batch, int startx, int width, String text, int textoffset) {
-        batch.end();
-        Gdx.gl20.glBlendFunc(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
-        Gdx.gl20.glEnable(GL20.GL_BLEND);
-        hudRenderer.begin(ShapeRenderer.ShapeType.Filled);
-        hudRenderer.setColor(0, 0, 0.8f, 0.3f);
-        hudRenderer.rect(startx, SilentSpaceConfig.GAME_WINDOW_HEIGHT - bgTexture.getHeight() + 17,
-                width, bgTexture.getHeight() - 20);
-        hudRenderer.end();
-        hudRenderer.begin(ShapeRenderer.ShapeType.Line);
-        hudRenderer.setColor(0, 0, 0, 0.7f);
-        hudRenderer.rect(startx, SilentSpaceConfig.GAME_WINDOW_HEIGHT - bgTexture.getHeight() + 17,
-                width, bgTexture.getHeight() - 20);
-        hudRenderer.end();
-        batch.begin();
-        font.draw(batch, text, startx + textoffset, SilentSpaceConfig.GAME_WINDOW_HEIGHT - bgTexture.getHeight() + 27);
+    public void drawHealthPixels(SpriteBatch batch) {
+        for(int i=0;i<10;i++) {
+            batch.draw(healthPixel, 268 + i*9, SilentSpaceConfig.GAME_WINDOW_HEIGHT - 47 + 6);
+        }
     }
 }

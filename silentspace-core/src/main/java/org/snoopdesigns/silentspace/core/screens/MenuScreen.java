@@ -2,6 +2,7 @@ package org.snoopdesigns.silentspace.core.screens;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import org.snoopdesigns.silentspace.core.InputHandler;
+import org.snoopdesigns.silentspace.core.audio.AudioProcessor;
 import org.snoopdesigns.silentspace.core.mainmenu.MainMenu;
 import org.snoopdesigns.silentspace.core.bg.BackgroundRenderer;
 
@@ -15,6 +16,7 @@ public class MenuScreen extends Screen{
         batch = new SpriteBatch();
         bg = new BackgroundRenderer();
         menu = new MainMenu(this);
+        AudioProcessor.playIntro();
     }
 
     @Override
@@ -28,6 +30,7 @@ public class MenuScreen extends Screen{
 
     @Override
     public void remove() {
+        AudioProcessor.stopIntro();
     }
 
     @Override

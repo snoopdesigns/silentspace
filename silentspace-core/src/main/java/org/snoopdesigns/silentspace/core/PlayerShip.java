@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.g2d.ParticleEffect;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import org.snoopdesigns.silentspace.core.config.SilentSpaceConfig;
 import org.snoopdesigns.silentspace.core.weapons.BlasterGun;
+import org.snoopdesigns.silentspace.core.weapons.PlayerWeaponsProcessor;
 import org.snoopdesigns.silentspace.core.weapons.Weapon;
 import org.snoopdesigns.silentspace.core.weapons.missiles.Missile;
 
@@ -26,11 +27,11 @@ public class PlayerShip {
     private ParticleEffect engineRight;
     private List<Weapon> playerWeapons;
     private PlayerHUD playerHUD;
+    private PlayerWeaponsProcessor wepProcessor;
 
     public PlayerShip() {
         playerHUD = new PlayerHUD();
-        playerWeapons = new ArrayList<Weapon>();
-        playerWeapons.add(new BlasterGun("Blaster Gun"));
+        wepProcessor = new PlayerWeaponsProcessor(playerHUD);
         shipTexture = new Texture(Gdx.files.internal("ship.png"));
         this.x = SilentSpaceConfig.GAME_WINDOW_WIDTH/2;
         this.y = 50;
@@ -77,7 +78,7 @@ public class PlayerShip {
     }
 
     public Missile fireActiveWeapon() {
-        return playerWeapons.get(0).fire((int)this.x, (int)this.y);
+        return wepProcessor.firePlayerActiveWeapon((int)this. x, (int)this.y);
     }
 
     public void moveRight() {
