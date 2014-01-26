@@ -2,6 +2,7 @@ package org.snoopdesigns.silentspace.core.screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import org.snoopdesigns.silentspace.core.CollisionProcessor;
 import org.snoopdesigns.silentspace.core.InputHandler;
 import org.snoopdesigns.silentspace.core.weapons.MissilesProcessor;
 import org.snoopdesigns.silentspace.core.levels.objects.ObjectProcessor;
@@ -20,6 +21,7 @@ public class GameScreen extends Screen{
     private MissilesProcessor missilesProcessor;
     private Level level;
     private ObjectProcessor objProcessor;
+    private CollisionProcessor collisionProcessor;
 
     public GameScreen() {
         batch = new SpriteBatch();
@@ -28,6 +30,7 @@ public class GameScreen extends Screen{
         missilesProcessor = new MissilesProcessor();
         level = new SimpleRocksLevel();
         objProcessor = new ObjectProcessor();
+        collisionProcessor = new CollisionProcessor(objProcessor, missilesProcessor);
     }
 
     @Override
@@ -38,6 +41,7 @@ public class GameScreen extends Screen{
         missilesProcessor.process(batch);
         level.process(objProcessor);
         objProcessor.process(batch);
+        collisionProcessor.process(batch);
         batch.end();
         bgRenderer.processStars();
         batch.begin();

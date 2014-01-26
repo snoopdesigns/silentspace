@@ -8,7 +8,7 @@ import java.util.List;
 
 public class ObjectProcessor {
 
-    List<LevelObject> objects;
+    private List<LevelObject> objects;
 
     public ObjectProcessor() {
         objects = new ArrayList<LevelObject>();
@@ -26,5 +26,14 @@ public class ObjectProcessor {
                 objects.remove(i);
             }
         }
+    }
+
+    public List<LevelObject> getObjects() {
+        return objects;
+    }
+
+    public void destroyObject(int id) {
+        objects.get(id).destroy();
+        objects.remove(id);
     }
 }

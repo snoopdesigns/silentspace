@@ -9,4 +9,5 @@ public interface LevelObject {
     public float getX();
     public float getY();
     public boolean isActive();
+    public void destroy();
 }

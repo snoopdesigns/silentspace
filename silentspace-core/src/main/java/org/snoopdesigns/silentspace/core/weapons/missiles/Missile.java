@@ -72,5 +72,8 @@ public abstract class Missile {
         protected int angle;
         protected float x;
         protected float y;
+
+        public float getX() {return x;}
+        public float getY() {return y;}
     }
 }

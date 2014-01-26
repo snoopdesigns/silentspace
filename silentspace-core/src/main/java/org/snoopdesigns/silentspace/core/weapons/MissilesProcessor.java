@@ -23,4 +23,8 @@ public class MissilesProcessor {
             }
         }
     }
+
+    public List<Missile> getActiveMissiles() {
+        return activeMissiles;
+    }
 }

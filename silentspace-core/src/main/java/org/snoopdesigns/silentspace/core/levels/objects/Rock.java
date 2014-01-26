@@ -48,4 +48,9 @@ public class Rock implements LevelObject{
     public boolean isActive() {
         return this.y > -100;
     }
+
+    @Override
+    public void destroy() {
+        System.out.println("Object destroyed!");
+    }
 }
