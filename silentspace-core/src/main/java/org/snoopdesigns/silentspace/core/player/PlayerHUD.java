@@ -1,4 +1,4 @@
-package org.snoopdesigns.silentspace.core;
+package org.snoopdesigns.silentspace.core.player;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;

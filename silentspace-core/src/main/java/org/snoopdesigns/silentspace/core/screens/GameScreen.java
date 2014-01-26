@@ -3,9 +3,12 @@ package org.snoopdesigns.silentspace.core.screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import org.snoopdesigns.silentspace.core.InputHandler;
-import org.snoopdesigns.silentspace.core.MissilesProcessor;
-import org.snoopdesigns.silentspace.core.PlayerShip;
+import org.snoopdesigns.silentspace.core.weapons.MissilesProcessor;
+import org.snoopdesigns.silentspace.core.levels.objects.ObjectProcessor;
+import org.snoopdesigns.silentspace.core.player.PlayerShip;
 import org.snoopdesigns.silentspace.core.bg.BackgroundRenderer;
+import org.snoopdesigns.silentspace.core.levels.Level;
+import org.snoopdesigns.silentspace.core.levels.SimpleRocksLevel;
 import org.snoopdesigns.silentspace.core.weapons.missiles.Missile;
 
 public class GameScreen extends Screen{
@@ -15,12 +18,16 @@ public class GameScreen extends Screen{
     private BackgroundRenderer bgRenderer;
     private PlayerShip playerShip;
     private MissilesProcessor missilesProcessor;
+    private Level level;
+    private ObjectProcessor objProcessor;
 
     public GameScreen() {
         batch = new SpriteBatch();
         bgRenderer = new BackgroundRenderer();
         playerShip = new PlayerShip();
         missilesProcessor = new MissilesProcessor();
+        level = new SimpleRocksLevel();
+        objProcessor = new ObjectProcessor();
     }
 
     @Override
@@ -29,6 +36,8 @@ public class GameScreen extends Screen{
         batch.begin();
         bgRenderer.processBackground(batch);
         missilesProcessor.process(batch);
+        level.process(objProcessor);
+        objProcessor.process(batch);
         batch.end();
         bgRenderer.processStars();
         batch.begin();

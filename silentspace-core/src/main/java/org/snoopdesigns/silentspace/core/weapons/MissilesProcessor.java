@@ -1,4 +1,4 @@
-package org.snoopdesigns.silentspace.core;
+package org.snoopdesigns.silentspace.core.weapons;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import org.snoopdesigns.silentspace.core.weapons.missiles.Missile;

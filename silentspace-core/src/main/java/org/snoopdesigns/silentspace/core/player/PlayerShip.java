@@ -1,16 +1,14 @@
-package org.snoopdesigns.silentspace.core;
+package org.snoopdesigns.silentspace.core.player;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.ParticleEffect;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import org.snoopdesigns.silentspace.core.config.SilentSpaceConfig;
-import org.snoopdesigns.silentspace.core.weapons.BlasterGun;
 import org.snoopdesigns.silentspace.core.weapons.PlayerWeaponsProcessor;
 import org.snoopdesigns.silentspace.core.weapons.Weapon;
 import org.snoopdesigns.silentspace.core.weapons.missiles.Missile;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class PlayerShip {

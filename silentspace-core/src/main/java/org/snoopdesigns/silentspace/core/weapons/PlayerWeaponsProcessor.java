@@ -1,7 +1,7 @@
 package org.snoopdesigns.silentspace.core.weapons;
 
 import com.badlogic.gdx.utils.Array;
-import org.snoopdesigns.silentspace.core.PlayerHUD;
+import org.snoopdesigns.silentspace.core.player.PlayerHUD;
 import org.snoopdesigns.silentspace.core.weapons.missiles.Missile;
 
 public class PlayerWeaponsProcessor {

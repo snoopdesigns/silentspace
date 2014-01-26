@@ -23,6 +23,13 @@ public class BlasterMissile extends Missile{
         info.add(mis);
     }
 
+    public BlasterMissile(int x, int y, Array<MissileInfo> missileInfo) {
+        super();
+        for(int i=0;i<missileInfo.size;i++) {
+            info.add(missileInfo.get(i));
+        }
+    }
+
     @Override
     public Missile newInstance(int x, int y) {
         return new BlasterMissile(x,y);
