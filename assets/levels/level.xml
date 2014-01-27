@@ -1,259 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Level name="Simple level" delay="4">
-	<LevelLine>
+    <LevelLine>
+        <Element action="null"/>
+        <Element action="Rock"/>
+        <Element action="null"/>
+        <Element action="null"/>
+        <Element action="null"/>
+        <Element action="null"/>
+    </LevelLine>
+    <LevelLine>
+        <Element action="null"/>
+        <Element action="Rock"/>
         <Element action="null"/>
         <Element action="null"/>
         <Element action="Rock"/>
+        <Element action="null"/>
+    </LevelLine>
+    <LevelLine>
+        <Element action="null"/>
+        <Element action="Rock"/>
+        <Element action="null"/>
+        <Element action="Rock"/>
+        <Element action="null"/>
+        <Element action="Rock"/>
+    </LevelLine>
+	<LevelLine>
+        <Element action="null"/>
+        <Element action="null"/>
+        <Element action="Rock" dropdown="HealthItem"/>
         <Element action="null"/>
         <Element action="null"/>
         <Element action="null"/>
 	</LevelLine>
-    <LevelLine>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="Rock"/>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="Rock"/>
-    </LevelLine>
-    <LevelLine>
-        <Element action="Rock"/>
-        <Element action="null"/>
-        <Element action="Rock"/>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="null"/>
-    </LevelLine>
-    <LevelLine>
-        <Element action="null"/>
-        <Element action="Rock"/>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="Rock"/>
-        <Element action="null"/>
-    </LevelLine>
-    <LevelLine>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="Rock"/>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="null"/>
-    </LevelLine>
-    <LevelLine>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="Rock"/>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="Rock"/>
-    </LevelLine>
-    <LevelLine>
-        <Element action="Rock"/>
-        <Element action="null"/>
-        <Element action="Rock"/>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="null"/>
-    </LevelLine>
-    <LevelLine>
-        <Element action="null"/>
-        <Element action="Rock"/>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="Rock"/>
-        <Element action="null"/>
-    </LevelLine>
-    <LevelLine>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="Rock"/>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="null"/>
-    </LevelLine>
-    <LevelLine>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="Rock"/>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="Rock"/>
-    </LevelLine>
-    <LevelLine>
-        <Element action="Rock"/>
-        <Element action="null"/>
-        <Element action="Rock"/>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="null"/>
-    </LevelLine>
-    <LevelLine>
-        <Element action="null"/>
-        <Element action="Rock"/>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="Rock"/>
-        <Element action="null"/>
-    </LevelLine>
-    <LevelLine>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="Rock"/>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="null"/>
-    </LevelLine>
-    <LevelLine>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="Rock"/>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="Rock"/>
-    </LevelLine>
-    <LevelLine>
-        <Element action="Rock"/>
-        <Element action="null"/>
-        <Element action="Rock"/>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="null"/>
-    </LevelLine>
-    <LevelLine>
-        <Element action="null"/>
-        <Element action="Rock"/>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="Rock"/>
-        <Element action="null"/>
-    </LevelLine>
-    <LevelLine>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="Rock"/>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="null"/>
-    </LevelLine>
-    <LevelLine>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="Rock"/>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="Rock"/>
-    </LevelLine>
-    <LevelLine>
-        <Element action="Rock"/>
-        <Element action="null"/>
-        <Element action="Rock"/>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="null"/>
-    </LevelLine>
-    <LevelLine>
-        <Element action="null"/>
-        <Element action="Rock"/>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="Rock"/>
-        <Element action="null"/>
-    </LevelLine>
-    <LevelLine>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="Rock"/>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="null"/>
-    </LevelLine>
-    <LevelLine>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="Rock"/>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="Rock"/>
-    </LevelLine>
-    <LevelLine>
-        <Element action="Rock"/>
-        <Element action="null"/>
-        <Element action="Rock"/>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="null"/>
-    </LevelLine>
-    <LevelLine>
-        <Element action="null"/>
-        <Element action="Rock"/>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="Rock"/>
-        <Element action="null"/>
-    </LevelLine>
-    <LevelLine>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="Rock"/>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="null"/>
-    </LevelLine>
-    <LevelLine>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="Rock"/>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="Rock"/>
-    </LevelLine>
-    <LevelLine>
-        <Element action="Rock"/>
-        <Element action="null"/>
-        <Element action="Rock"/>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="null"/>
-    </LevelLine>
-    <LevelLine>
-        <Element action="null"/>
-        <Element action="Rock"/>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="Rock"/>
-        <Element action="null"/>
-    </LevelLine>
-    <LevelLine>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="Rock"/>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="null"/>
-    </LevelLine>
-    <LevelLine>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="Rock"/>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="Rock"/>
-    </LevelLine>
-    <LevelLine>
-        <Element action="Rock"/>
-        <Element action="null"/>
-        <Element action="Rock"/>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="null"/>
-    </LevelLine>
-    <LevelLine>
-        <Element action="null"/>
-        <Element action="Rock"/>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="Rock"/>
-        <Element action="null"/>
-    </LevelLine>
 </Level>

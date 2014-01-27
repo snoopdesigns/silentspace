@@ -45,6 +45,12 @@ public class ObjectProcessor {
                 int y = (int)objects.get(ids.get(i).intValue()).getY();
                 this.addLevelObject(new Explosion(x,y,anim, rows * cols));
             }
+            if(objects.get(ids.get(i).intValue()).getDropdownObject() != null) {
+                DropDownLevelObject object = objects.get(ids.get(i).intValue()).getDropdownObject();
+                object.setStartX(objects.get(ids.get(i).intValue()).getX());
+                object.setStartY(objects.get(ids.get(i).intValue()).getY());
+                objects.add(object);
+            }
             objects.remove(ids.get(i).intValue());
 
         }

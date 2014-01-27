@@ -9,10 +9,20 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 public abstract class LevelObject {
 
     public int objectLine = 0;
+    private DropDownLevelObject dropdownObject = null;
 
     public void setLine(int line) {
         objectLine = line;
     }
+
+    public void setDropdownObject(DropDownLevelObject object) {
+        dropdownObject = object;
+    }
+
+    public DropDownLevelObject getDropdownObject() {
+        return dropdownObject;
+    }
+
     public abstract void process(SpriteBatch batch);
     public abstract float getX();
     public abstract float getY();
@@ -23,6 +33,7 @@ public abstract class LevelObject {
     public abstract int getAnimationCols();
     public abstract boolean isExplodable();
     public abstract boolean isDestroyble();
+    public abstract boolean isCatchable();
     public Animation getAnimation(int frame_cols, int frame_rows) {
         Animation animation;
         Texture sheet;

@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.g2d.ParticleEffect;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import org.snoopdesigns.silentspace.core.config.SilentSpaceConfig;
 import org.snoopdesigns.silentspace.core.weapons.PlayerWeaponsProcessor;
+import org.snoopdesigns.silentspace.core.weapons.Weapon;
 import org.snoopdesigns.silentspace.core.weapons.missiles.Missile;
 
 public class PlayerShip {
@@ -86,6 +87,10 @@ public class PlayerShip {
 
     public Missile fireActiveWeapon() {
         return wepProcessor.firePlayerActiveWeapon((int)this. x, (int)this.y);
+    }
+
+    public void addPlayerWeapon(Weapon weapon) {
+        this.wepProcessor.addPlayerWeapon(weapon);
     }
 
     public void moveRight() {

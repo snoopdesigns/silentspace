@@ -3,6 +3,7 @@ package org.snoopdesigns.silentspace.core.levels;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.utils.XmlReader;
+import org.snoopdesigns.silentspace.core.levels.objects.DropDownLevelObject;
 import org.snoopdesigns.silentspace.core.levels.objects.LevelObject;
 import org.snoopdesigns.silentspace.core.levels.objects.ObjectProcessor;
 
@@ -41,6 +42,10 @@ public abstract class Level {
                         Method method = c.getMethod("setLine", paramTypes);
                         Object[] args = new Object[] { new Integer(i) };
                         method.invoke(obj, args);
+                        if(elem.getChild(i).getAttributes().containsKey("dropdown")) {
+                            System.out.println("Adding dropdown item: " + elem.getChild(i).getAttribute("dropdown"));
+                            this.addDropDownObject(obj, elem.getChild(i).getAttribute("dropdown"));
+                        }
                         objProcessor.addLevelObject((LevelObject)obj);
                     } catch(Exception e) {
                         e.printStackTrace();
@@ -62,5 +67,27 @@ public abstract class Level {
             e.printStackTrace();
         }
         return main;
+    }
+
+    private void addDropDownObject(Object object, String name) {
+        try {
+            Class[] paramTypes = new Class[] { DropDownLevelObject.class };
+            Method method = object.getClass().getMethod("setDropdownObject", paramTypes);
+            Object[] args = new Object[] { this.getDropDownObject(name) };
+            method.invoke(object, args);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private Object getDropDownObject(String name) {
+        Object obj = null;
+        try {
+            Class c = Class.forName("org.snoopdesigns.silentspace.core.levels.objects." + name);
+            obj = c.newInstance();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return obj;
     }
 }

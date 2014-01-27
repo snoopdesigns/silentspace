@@ -1,0 +1,2 @@
+1. Delay between shots
+2. Levels changing (FSM)

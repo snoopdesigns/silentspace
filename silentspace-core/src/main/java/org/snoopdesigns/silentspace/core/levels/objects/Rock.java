@@ -89,4 +89,9 @@ public class Rock extends LevelObject{
     public boolean isDestroyble() {
         return true;
     }
+
+    @Override
+    public boolean isCatchable() {
+        return false;
+    }
 }

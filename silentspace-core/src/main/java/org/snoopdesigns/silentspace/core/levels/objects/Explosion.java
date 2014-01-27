@@ -77,4 +77,9 @@ public class Explosion extends LevelObject{
     public boolean isDestroyble() {
         return false;
     }
+
+    @Override
+    public boolean isCatchable() {
+        return false;
+    }
 }
