@@ -6,15 +6,23 @@ import com.badlogic.gdx.graphics.g2d.ParticleEffect;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import org.snoopdesigns.silentspace.core.config.SilentSpaceConfig;
 import org.snoopdesigns.silentspace.core.weapons.PlayerWeaponsProcessor;
-import org.snoopdesigns.silentspace.core.weapons.Weapon;
 import org.snoopdesigns.silentspace.core.weapons.missiles.Missile;
-
-import java.util.List;
 
 public class PlayerShip {
 
     public float x;
     public float y;
+
+    public float getHealth() {
+        return health;
+    }
+
+    public void setHealth(float health) {
+        this.health = health;
+        this.playerHUD.setPlayerHealth(health);
+        System.out.println("PLAYER HEALTH = " + health);
+    }
+
     public float health;
     private Texture shipTexture;
     private boolean movingRight;
@@ -23,12 +31,13 @@ public class PlayerShip {
     private boolean movingDown;
     private ParticleEffect engineLeft;
     private ParticleEffect engineRight;
-    private List<Weapon> playerWeapons;
     private PlayerHUD playerHUD;
     private PlayerWeaponsProcessor wepProcessor;
 
     public PlayerShip() {
         playerHUD = new PlayerHUD();
+        this.health = 170;
+        playerHUD.setPlayerHealth(health);
         wepProcessor = new PlayerWeaponsProcessor(playerHUD);
         shipTexture = new Texture(Gdx.files.internal("ship.png"));
         this.x = SilentSpaceConfig.GAME_WINDOW_WIDTH/2;

@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.Array;
 import org.snoopdesigns.silentspace.core.levels.objects.LevelObject;
 import org.snoopdesigns.silentspace.core.levels.objects.ObjectProcessor;
+import org.snoopdesigns.silentspace.core.player.PlayerShip;
 import org.snoopdesigns.silentspace.core.weapons.MissilesProcessor;
 import org.snoopdesigns.silentspace.core.weapons.missiles.Missile;
 
@@ -16,13 +17,16 @@ public class CollisionProcessor {
 
     private ObjectProcessor objectProcessor;
     private MissilesProcessor missilesProcessor;
+    private PlayerShip playerShip;
     private Array<Integer> objectsToDestroy;
     private Map<Integer, Array<Integer>> missilesToDestroy;
-    public static final float COLLISION_EPS = 10.0f;
+    public static final float COLLISION_EPS = 15.0f;
+    public static final float PLAYER_COLLISION_EPS = 25.0f;
 
-    public CollisionProcessor(ObjectProcessor objProcessor, MissilesProcessor misProcessor) {
+    public CollisionProcessor(ObjectProcessor objProcessor, MissilesProcessor misProcessor, PlayerShip playerShip) {
         this.objectProcessor = objProcessor;
         this.missilesProcessor = misProcessor;
+        this.playerShip = playerShip;
         objectsToDestroy = new Array<Integer>();
         missilesToDestroy = new HashMap<Integer, Array<Integer>>();
     }
@@ -37,7 +41,7 @@ public class CollisionProcessor {
                     if(objects.get(j).isDestroyble()) {
                         if(checkCollision(missiles.get(i).getMissilesInfo().get(k).getX(),
                                 missiles.get(i).getMissilesInfo().get(k).getY(),
-                                objects.get(j).getX(),objects.get(j).getY())) {
+                                objects.get(j).getX(),objects.get(j).getY(), COLLISION_EPS)) {
                             if(!objectsToDestroy.contains(j,true)) { objectsToDestroy.add(j);}
                             this.addMissileToDestroy(i,k);
                         }
@@ -45,8 +49,18 @@ public class CollisionProcessor {
                 }
             }
         }
+
+        for(int i=0;i<objects.size();i++) {
+            if(checkCollision(playerShip.x + 30, playerShip.y + 30, objects.get(i).getX(),
+                    objects.get(i).getY(), PLAYER_COLLISION_EPS)) {
+                if(!objectsToDestroy.contains(i,true)) { objectsToDestroy.add(i);}
+                playerShip.setHealth(playerShip.getHealth() - 10);
+            }
+        }
+
         if(objectsToDestroy.size > 0) objectProcessor.destroyObject(objectsToDestroy);
         objectsToDestroy.clear();
+
         Iterator it = missilesToDestroy.entrySet().iterator();
         while (it.hasNext()) {
             Map.Entry pairs = (Map.Entry)it.next();
@@ -68,11 +82,11 @@ public class CollisionProcessor {
         }
     }
 
-    private boolean checkCollision(float x1, float y1, float x2, float y2) {
+    private boolean checkCollision(float x1, float y1, float x2, float y2, float eps) {
         float dx = (x2-x1)*(x2-x1);
         float dy = (y2-y1)*(y2-y1);
         double result = Math.sqrt(dx + dy);
-        if(result < COLLISION_EPS) return true;
+        if(result < eps) return true;
         return false;
     }
 }

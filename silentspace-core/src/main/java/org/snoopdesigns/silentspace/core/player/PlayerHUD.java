@@ -1,20 +1,18 @@
 package org.snoopdesigns.silentspace.core.player;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import org.snoopdesigns.silentspace.core.config.SilentSpaceConfig;
-import org.snoopdesigns.silentspace.core.mainmenu.MenuItem;
 
 public class PlayerHUD {
 
     private Texture bgTexture;
     private ShapeRenderer hudRenderer;
     private BitmapFont font;
-    private String playerHealth;
+    private float playerHealth;
     private String playerWeaponName;
     private String playerAmmoCount;
     private Texture ammoTexture;
@@ -22,7 +20,7 @@ public class PlayerHUD {
     private Texture healthTexture;
     private Texture healthPixel;
 
-    public void setPlayerHealth(String playerHealth) {
+    public void setPlayerHealth(float playerHealth) {
         this.playerHealth = playerHealth;
     }
 
@@ -57,8 +55,10 @@ public class PlayerHUD {
     }
 
     public void drawHealthPixels(SpriteBatch batch) {
-        for(int i=0;i<10;i++) {
-            batch.draw(healthPixel, 268 + i*9, SilentSpaceConfig.GAME_WINDOW_HEIGHT - 47 + 6);
+        for(int i=0;i<17;i++) {
+            if(this.playerHealth > i*10) {
+                batch.draw(healthPixel, 268 + i*9, SilentSpaceConfig.GAME_WINDOW_HEIGHT - 47 + 6);
+            }
         }
     }
 }
