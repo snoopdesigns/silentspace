@@ -40,8 +40,8 @@ public class GameScreen extends Screen{
         bgRenderer.processBackground(batch);
         missilesProcessor.process(batch);
         level.process(objProcessor);
-        playerShip.processShip(batch);
         objProcessor.process(batch);
+        playerShip.processShip(batch);
         collisionProcessor.process(batch);
         batch.end();
         bgRenderer.processStars();

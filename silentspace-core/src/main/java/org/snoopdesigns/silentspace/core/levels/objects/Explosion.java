@@ -5,6 +5,7 @@ import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import org.snoopdesigns.silentspace.core.audio.AudioProcessor;
 
 public class Explosion extends LevelObject{
 
@@ -21,6 +22,7 @@ public class Explosion extends LevelObject{
         statetime = 0f;
         this.x = x - anim.getKeyFrame(0f).getRegionHeight()/2;
         this.y = y - anim.getKeyFrame(0f).getRegionWidth()/2;
+        AudioProcessor.playEffect(Gdx.audio.newSound(Gdx.files.internal("audio/effects/explode.wav")));
     }
 
     @Override

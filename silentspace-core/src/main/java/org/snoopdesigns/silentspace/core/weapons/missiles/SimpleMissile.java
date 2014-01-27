@@ -18,6 +18,8 @@ public class SimpleMissile extends Missile{
     public SimpleMissile(int x, int y) {
         MissileInfo mis = new MissileInfo(x+43-getMissileTexture().getWidth()/2,
                 y+80-getMissileTexture().getHeight()/2,300,0);
+        mis.centered = true;
+        mis.centerOffset = getMissileTexture().getHeight()/2;
         info.add(mis);
     }
 

@@ -80,8 +80,16 @@ public abstract class Missile {
         protected int angle;
         protected float x;
         protected float y;
+        protected boolean centered;
+        protected float centerOffset;
 
-        public float getX() {return x;}
-        public float getY() {return y;}
+        public float getX() {
+            if(centered) return x + centerOffset;
+            return x;
+        }
+        public float getY() {
+            if(centered) return y+centerOffset;
+            return y;
+        }
     }
 }
