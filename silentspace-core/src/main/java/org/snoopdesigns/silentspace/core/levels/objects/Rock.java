@@ -13,7 +13,6 @@ public class Rock implements LevelObject{
     private float x;
     private float y;
     private Sprite rockTexture;
-    private int rotation;
 
     public Rock() {
         this.y = SilentSpaceConfig.GAME_WINDOW_HEIGHT;
@@ -24,24 +23,24 @@ public class Rock implements LevelObject{
 
     @Override
     public void setLine(int line) {
-        this.x = 73*line;
+        this.x = 18 + 70*line;
     }
 
     @Override
     public void process(SpriteBatch batch) {
-        this.y -= 1.5f;
+        this.y -= 1.0f;
         rockTexture.setPosition(x ,y);
         rockTexture.draw(batch);
     }
 
     @Override
     public float getX() {
-        return x;
+        return x + rockTexture.getWidth()/2;
     }
 
     @Override
     public float getY() {
-        return y;
+        return y + rockTexture.getHeight()/2;
     }
 
     @Override

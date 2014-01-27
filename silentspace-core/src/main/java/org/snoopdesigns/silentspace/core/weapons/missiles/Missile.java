@@ -60,6 +60,14 @@ public abstract class Missile {
         }
     }
 
+    public void destroyMissile(Array<Integer> toRemove) {
+        System.out.println("Missile destroyed!");
+        toRemove.reverse();
+        for(int i=0;i<toRemove.size;i++) {
+            this.getMissilesInfo().removeIndex(toRemove.get(i));
+        }
+    }
+
     public class MissileInfo {
 
         public MissileInfo(int startPointX, int startPointY, int speed, int angle) {

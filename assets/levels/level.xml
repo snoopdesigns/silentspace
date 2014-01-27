@@ -8,4 +8,28 @@
         <Element action="null"/>
         <Element action="null"/>
 	</LevelLine>
+    <LevelLine>
+        <Element action="null"/>
+        <Element action="null"/>
+        <Element action="Rock"/>
+        <Element action="null"/>
+        <Element action="null"/>
+        <Element action="Rock"/>
+    </LevelLine>
+    <LevelLine>
+        <Element action="Rock"/>
+        <Element action="null"/>
+        <Element action="Rock"/>
+        <Element action="null"/>
+        <Element action="null"/>
+        <Element action="null"/>
+    </LevelLine>
+    <LevelLine>
+        <Element action="null"/>
+        <Element action="Rock"/>
+        <Element action="null"/>
+        <Element action="null"/>
+        <Element action="Rock"/>
+        <Element action="null"/>
+    </LevelLine>
 </Level>
