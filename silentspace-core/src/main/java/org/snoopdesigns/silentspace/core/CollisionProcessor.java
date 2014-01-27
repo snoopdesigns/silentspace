@@ -21,7 +21,7 @@ public class CollisionProcessor {
     private Array<Integer> objectsToDestroy;
     private Map<Integer, Array<Integer>> missilesToDestroy;
     public static final float COLLISION_EPS = 15.0f;
-    public static final float PLAYER_COLLISION_EPS = 25.0f;
+    public static final float PLAYER_COLLISION_EPS = 35.0f;
 
     public CollisionProcessor(ObjectProcessor objProcessor, MissilesProcessor misProcessor, PlayerShip playerShip) {
         this.objectProcessor = objProcessor;
@@ -51,7 +51,7 @@ public class CollisionProcessor {
         }
 
         for(int i=0;i<objects.size();i++) {
-            if(checkCollision(playerShip.x + 30, playerShip.y + 30, objects.get(i).getX(),
+            if(checkCollision(playerShip.x + 42, playerShip.y + 42, objects.get(i).getX(),
                     objects.get(i).getY(), PLAYER_COLLISION_EPS)) {
                 if(!objectsToDestroy.contains(i,true)) { objectsToDestroy.add(i);}
                 playerShip.setHealth(playerShip.getHealth() - 10);
