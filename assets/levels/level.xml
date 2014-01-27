@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Level name="Simple level" delay="2">
+<Level name="Simple level" delay="4">
 	<LevelLine>
         <Element action="null"/>
         <Element action="null"/>

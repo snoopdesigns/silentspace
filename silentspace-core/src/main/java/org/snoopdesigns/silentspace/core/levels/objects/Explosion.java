@@ -3,8 +3,11 @@ package org.snoopdesigns.silentspace.core.levels.objects;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+
+import java.util.Random;
 
 public class Explosion extends LevelObject{
 
@@ -14,6 +17,7 @@ public class Explosion extends LevelObject{
     TextureRegion currentFrame;
     private int x;
     private int y;
+    private int rotation;
 
     public Explosion(int x, int y, Animation anim, int frames) {
         animation = anim;
@@ -21,6 +25,7 @@ public class Explosion extends LevelObject{
         statetime = 0f;
         this.x = x - anim.getKeyFrame(0f).getRegionHeight()/2;
         this.y = y - anim.getKeyFrame(0f).getRegionWidth()/2;
+        rotation = new Random().nextInt(360);
     }
 
     @Override
@@ -28,7 +33,9 @@ public class Explosion extends LevelObject{
         statetime += Gdx.graphics.getDeltaTime();
         if(statetime <= animation.animationDuration) {
             currentFrame = animation.getKeyFrame(statetime, true);
-            batch.draw(currentFrame, x, y);
+            Sprite sprite = new Sprite(currentFrame);
+            sprite.setRotation(rotation);
+            batch.draw(sprite, x, y);
         }
     }
 

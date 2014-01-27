@@ -13,18 +13,34 @@ public class Rock extends LevelObject{
     private float x;
     private float y;
     private Sprite rockTexture;
+    private static final int ROTATE_LEFT = 1;
+    private static final int ROTATE_RIGHT = 2;
+    private int rotation;
+    private int rotationSpeed;
 
     public Rock() {
         this.y = SilentSpaceConfig.GAME_WINDOW_HEIGHT;
         this.x = 30;
         rockTexture = new Sprite(new Texture(Gdx.files.internal("rock.png")));
         rockTexture.setRotation(new Random().nextInt(360));
+        if(new Random().nextBoolean()) {
+            rotation = ROTATE_LEFT;
+        } else {
+            rotation = ROTATE_RIGHT;
+        }
+        rotationSpeed = new Random().nextInt(2)+1;
+
     }
 
     @Override
     public void process(SpriteBatch batch) {
         this.x = 18 + 70*objectLine;
         this.y -= 1.0f;
+        if(rotation == ROTATE_RIGHT) {
+            rockTexture.setRotation(rockTexture.getRotation() + rotationSpeed);
+        } else {
+            rockTexture.setRotation(rockTexture.getRotation() - rotationSpeed);
+        }
         rockTexture.setPosition(x ,y);
         rockTexture.draw(batch);
     }
