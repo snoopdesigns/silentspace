@@ -1,5 +1,6 @@
 package org.snoopdesigns.silentspace.core.levels.objects;
 
+import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.Array;
 
@@ -35,8 +36,17 @@ public class ObjectProcessor {
     public void destroyObject(Array<Integer> ids) {
         ids.reverse();
         for(int i=0;i<ids.size;i++) {
-            objects.get(ids.get(i)).destroy();
+            objects.get(ids.get(i).intValue()).destroy();
+            if(objects.get(ids.get(i).intValue()).isExplodable()) {
+                int rows = objects.get(ids.get(i).intValue()).getAnimationRows();
+                int cols = objects.get(ids.get(i).intValue()).getAnimationCols();
+                Animation anim = objects.get(ids.get(i).intValue()).getAnimation(cols, rows);
+                int x = (int)objects.get(ids.get(i).intValue()).getX();
+                int y = (int)objects.get(ids.get(i).intValue()).getY();
+                this.addLevelObject(new Explosion(x,y,anim, rows * cols));
+            }
             objects.remove(ids.get(i).intValue());
+
         }
     }
 }

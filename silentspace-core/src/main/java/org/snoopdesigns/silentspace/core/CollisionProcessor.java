@@ -34,11 +34,13 @@ public class CollisionProcessor {
         for(int i=0;i<missiles.size();i++) {
             for(int j=0;j<objects.size();j++) {
                 for(int k=0;k<missiles.get(i).getMissilesInfo().size;k++) {
-                    if(checkCollision(missiles.get(i).getMissilesInfo().get(k).getX(),
-                            missiles.get(i).getMissilesInfo().get(k).getY(),
-                            objects.get(j).getX(),objects.get(j).getY())) {
-                        if(!objectsToDestroy.contains(j,true)) { objectsToDestroy.add(j);}
-                        this.addMissileToDestroy(i,k);
+                    if(objects.get(j).isDestroyble()) {
+                        if(checkCollision(missiles.get(i).getMissilesInfo().get(k).getX(),
+                                missiles.get(i).getMissilesInfo().get(k).getY(),
+                                objects.get(j).getX(),objects.get(j).getY())) {
+                            if(!objectsToDestroy.contains(j,true)) { objectsToDestroy.add(j);}
+                            this.addMissileToDestroy(i,k);
+                        }
                     }
                 }
             }

@@ -1,14 +1,14 @@
 package org.snoopdesigns.silentspace.core.levels.objects;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import org.snoopdesigns.silentspace.core.config.SilentSpaceConfig;
-
 import java.util.Random;
 
-public class Rock implements LevelObject{
+public class Rock extends LevelObject{
 
     private float x;
     private float y;
@@ -22,12 +22,8 @@ public class Rock implements LevelObject{
     }
 
     @Override
-    public void setLine(int line) {
-        this.x = 18 + 70*line;
-    }
-
-    @Override
     public void process(SpriteBatch batch) {
+        this.x = 18 + 70*objectLine;
         this.y -= 1.0f;
         rockTexture.setPosition(x ,y);
         rockTexture.draw(batch);
@@ -51,5 +47,30 @@ public class Rock implements LevelObject{
     @Override
     public void destroy() {
         System.out.println("Object destroyed!");
+    }
+
+    @Override
+    public FileHandle getAnimationFile() {
+        return Gdx.files.internal("effects/animations/explosion.png");
+    }
+
+    @Override
+    public int getAnimationRows() {
+        return 4;
+    }
+
+    @Override
+    public int getAnimationCols() {
+        return 5;
+    }
+
+    @Override
+    public boolean isExplodable() {
+        return true;
+    }
+
+    @Override
+    public boolean isDestroyble() {
+        return true;
     }
 }

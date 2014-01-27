@@ -1,6 +1,7 @@
 package org.snoopdesigns.silentspace.core.bg;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
@@ -50,7 +51,9 @@ public class BackgroundRenderer {
                 toRemove.add(i);
             } else {
                 starsRenderer.begin(ShapeRenderer.ShapeType.Filled);
-                starsRenderer.setColor(1, 1, 1, 1);
+                Gdx.gl20.glBlendFunc(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
+                Gdx.gl20.glEnable(GL20.GL_BLEND);
+                starsRenderer.setColor(1, 1, 1, 0.5f);
                 stars.get(i).y -= (stars.get(i).speed * Gdx.graphics.getDeltaTime());
                 starsRenderer.circle(stars.get(i).x, stars.get(i).y, stars.get(i).size);
                 starsRenderer.end();
