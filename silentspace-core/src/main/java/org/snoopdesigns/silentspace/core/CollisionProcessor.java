@@ -1,8 +1,11 @@
 package org.snoopdesigns.silentspace.core;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.Array;
+import org.snoopdesigns.silentspace.core.audio.AudioProcessor;
 import org.snoopdesigns.silentspace.core.levels.objects.DropDownLevelObject;
+import org.snoopdesigns.silentspace.core.levels.objects.Explosion;
 import org.snoopdesigns.silentspace.core.levels.objects.LevelObject;
 import org.snoopdesigns.silentspace.core.levels.objects.ObjectProcessor;
 import org.snoopdesigns.silentspace.core.player.PlayerShip;
@@ -56,9 +59,14 @@ public class CollisionProcessor {
                     objects.get(i).getY(), PLAYER_COLLISION_EPS)) {
                 if(objects.get(i).isCatchable() && objects.get(i) instanceof DropDownLevelObject) {
                     ((DropDownLevelObject) objects.get(i)).updatePlayer(playerShip);
+                    AudioProcessor.playEffect(Gdx.audio.newSound(Gdx.files.internal("audio/effects/item_collect.wav")));
+                    objects.add(new Explosion((int)playerShip.x + 42, (int)playerShip.y + 42,
+                            objects.get(i).getAnimation(objects.get(i).getAnimationCols(), objects.get(i).getAnimationRows()),
+                            objects.get(i).getAnimationCols() * objects.get(i).getAnimationRows()));
+                } else {
+                    playerShip.setHealth(playerShip.getHealth() - 10);
                 }
                 if(!objectsToDestroy.contains(i,true)) { objectsToDestroy.add(i);}
-                playerShip.setHealth(playerShip.getHealth() - 10);
             }
         }
 

@@ -1,6 +1,5 @@
 package org.snoopdesigns.silentspace.core.weapons;
 
-import com.badlogic.gdx.Audio;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.utils.Array;
 import org.snoopdesigns.silentspace.core.audio.AudioProcessor;
@@ -18,13 +17,15 @@ public class PlayerWeaponsProcessor {
         playerWeapons = new Array<Weapon>();
         playerWeapons.add(new MissileGun("Missile", 999));
         playerWeapons.add(new DoubleBlasterGun("Double", 10));
-        playerWeapons.add(new BlasterGun("Blaster", 10));
+        playerWeapons.add(new BlasterGun("Blaster", 50));
         this.setPlayerActiveWeapon(2);
     }
 
     public void addPlayerWeapon(Weapon weapon) {
         playerWeapons.add(weapon);
         playerActiveWeapon = playerWeapons.size - 1;
+        hudInstance.setPlayerWeaponName(playerWeapons.get(playerActiveWeapon).getWeaponName());
+        hudInstance.setPlayerAmmoCount(String.valueOf(playerWeapons.get(playerActiveWeapon).getMissileCount()));
     }
 
     public void setPlayerActiveWeapon(int i) {

@@ -1,8 +1,10 @@
 package org.snoopdesigns.silentspace.core.levels.objects;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.Array;
+import org.snoopdesigns.silentspace.core.audio.AudioProcessor;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,6 +46,7 @@ public class ObjectProcessor {
                 int x = (int)objects.get(ids.get(i).intValue()).getX();
                 int y = (int)objects.get(ids.get(i).intValue()).getY();
                 this.addLevelObject(new Explosion(x,y,anim, rows * cols));
+                AudioProcessor.playEffect(Gdx.audio.newSound(Gdx.files.internal("audio/effects/explode.wav")));
             }
             if(objects.get(ids.get(i).intValue()).getDropdownObject() != null) {
                 DropDownLevelObject object = objects.get(ids.get(i).intValue()).getDropdownObject();
