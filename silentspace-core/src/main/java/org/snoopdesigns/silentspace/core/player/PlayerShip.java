@@ -33,6 +33,11 @@ public class PlayerShip {
     private ParticleEffect engineLeft;
     private ParticleEffect engineRight;
     private PlayerHUD playerHUD;
+
+    public PlayerWeaponsProcessor getWepProcessor() {
+        return wepProcessor;
+    }
+
     private PlayerWeaponsProcessor wepProcessor;
 
     public PlayerShip() {

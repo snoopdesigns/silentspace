@@ -24,4 +24,9 @@ public class DoubleBlasterGun extends Weapon{
     public Sound getShotSound() {
         return Gdx.audio.newSound(Gdx.files.internal("audio/effects/blaster.wav"));
     }
+
+    @Override
+    public float getWeaponShotsDelay() {
+        return 0.6f;
+    }
 }

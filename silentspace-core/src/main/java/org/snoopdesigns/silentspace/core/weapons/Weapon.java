@@ -39,4 +39,5 @@ public abstract class Weapon {
     }
     public abstract Missile getMissileType();
     public abstract Sound getShotSound();
+    public abstract float getWeaponShotsDelay();
 }

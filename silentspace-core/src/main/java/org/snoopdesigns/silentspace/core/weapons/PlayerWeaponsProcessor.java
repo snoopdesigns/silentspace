@@ -38,6 +38,10 @@ public class PlayerWeaponsProcessor {
         return playerActiveWeapon;
     }
 
+    public Weapon getPlayerActiveWeaponById(int id) {
+        return playerWeapons.get(id);
+    }
+
     public Missile firePlayerActiveWeapon(int x, int y) {
         if(playerActiveWeapon != -1) {
             if(playerWeapons.get(playerActiveWeapon).getMissileCount() == 0) {

@@ -16,14 +16,17 @@ public class GameScreen extends Screen{
 
     SpriteBatch batch;
     float elapsed;
+    float fireDelay;
     private BackgroundRenderer bgRenderer;
     private PlayerShip playerShip;
     private MissilesProcessor missilesProcessor;
     private Level level;
     private ObjectProcessor objProcessor;
     private CollisionProcessor collisionProcessor;
+    private boolean isShooting = false;
 
     public GameScreen() {
+        fireDelay = 100f;
         batch = new SpriteBatch();
         bgRenderer = new BackgroundRenderer();
         playerShip = new PlayerShip();
@@ -45,6 +48,18 @@ public class GameScreen extends Screen{
         collisionProcessor.process(batch);
         batch.end();
         bgRenderer.processStars();
+
+        if(isShooting) {
+            fireDelay += Gdx.graphics.getDeltaTime();
+            if(fireDelay > playerShip.getWepProcessor().getPlayerActiveWeaponById(
+                    playerShip.getWepProcessor().getPlayerActiveWeapon()).getWeaponShotsDelay()) {
+                fireDelay = 0f;
+                Missile mis = playerShip.fireActiveWeapon();
+                if(mis != null) {
+                    missilesProcessor.addActiveMissile(mis);
+                }
+            }
+        }
     }
 
     @Override
@@ -67,10 +82,11 @@ public class GameScreen extends Screen{
             playerShip.moveDown();
         }
         if(input.isKeyPressed(InputHandler.SPACE)) {
-            Missile mis = playerShip.fireActiveWeapon();
-            if(mis != null) {
-                missilesProcessor.addActiveMissile(mis);
-            }
+            isShooting = true;
+        }
+        if(input.isKeyReleased(InputHandler.SPACE)) {
+            isShooting = false;
+            fireDelay = 1.1f;
         }
     }
 }

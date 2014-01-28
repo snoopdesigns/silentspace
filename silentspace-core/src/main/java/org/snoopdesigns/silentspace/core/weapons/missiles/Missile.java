@@ -17,7 +17,6 @@ public abstract class Missile {
             for(int i=0;i<this.getMissilesPerShot();i++) {
                 particleEffects.add(this.getParticleEffect());
             }
-
         }
     }
 
@@ -62,7 +61,6 @@ public abstract class Missile {
     }
 
     public void destroyMissile(Array<Integer> toRemove) {
-        System.out.println("Missile destroyed!");
         toRemove.reverse();
         for(int i=0;i<toRemove.size;i++) {
             if(toRemove.get(i) < this.getMissilesInfo().size) {
