@@ -11,6 +11,12 @@ public class HealthItem extends DropDownLevelObject{
     public HealthItem() {
         super();
     }
+
+    @Override
+    public int getInitialHealth() {
+        return 30;
+    }
+
     @Override
     public void destroy() {
     }

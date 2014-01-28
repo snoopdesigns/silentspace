@@ -61,4 +61,9 @@ public class BlasterMissile extends Missile{
     public int getMissilesPerShot() {
         return 3;
     }
+
+    @Override
+    public int getMissileStrength() {
+        return 10;
+    }
 }

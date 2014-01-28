@@ -33,6 +33,11 @@ public class Rock extends LevelObject{
     }
 
     @Override
+    public int getInitialHealth() {
+        return 15;
+    }
+
+    @Override
     public void process(SpriteBatch batch) {
         this.x = 18 + 70*objectLine;
         this.y -= 1.0f;

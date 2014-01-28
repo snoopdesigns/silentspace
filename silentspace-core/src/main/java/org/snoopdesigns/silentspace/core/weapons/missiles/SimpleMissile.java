@@ -52,4 +52,9 @@ public class SimpleMissile extends Missile{
     public int getMissilesPerShot() {
         return 1;
     }
+
+    @Override
+    public int getMissileStrength() {
+        return 5;
+    }
 }

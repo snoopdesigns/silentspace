@@ -24,6 +24,11 @@ public class Explosion extends LevelObject{
     }
 
     @Override
+    public int getInitialHealth() {
+        return 0;
+    }
+
+    @Override
     public void process(SpriteBatch batch) {
         statetime += Gdx.graphics.getDeltaTime();
         if(statetime <= animation.animationDuration) {

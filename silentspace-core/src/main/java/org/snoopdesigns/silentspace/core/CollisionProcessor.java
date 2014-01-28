@@ -46,8 +46,14 @@ public class CollisionProcessor {
                         if(checkCollision(missiles.get(i).getMissilesInfo().get(k).getX(),
                                 missiles.get(i).getMissilesInfo().get(k).getY(),
                                 objects.get(j).getX(),objects.get(j).getY(), COLLISION_EPS)) {
-                            if(!objectsToDestroy.contains(j,true)) { objectsToDestroy.add(j);}
-                            this.addMissileToDestroy(i,k);
+                                objects.get(j).health -= missiles.get(i).getMissileStrength();
+                                if(objects.get(j).health < 0) {
+                                    if(!objectsToDestroy.contains(j,true)) { objectsToDestroy.add(j);}
+                                } else {
+                                    objects.add(new Explosion((int)objects.get(j).getX()-2, (int)objects.get(j).getY()-6,
+                                            objects.get(j).getHitAnimation(), 20));
+                                }
+                                    this.addMissileToDestroy(i,k);
                         }
                     }
                 }

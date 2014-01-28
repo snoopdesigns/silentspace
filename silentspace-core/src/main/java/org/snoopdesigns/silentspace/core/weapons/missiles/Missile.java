@@ -50,6 +50,7 @@ public abstract class Missile {
     public abstract boolean useTexture();
     public abstract ParticleEffect getParticleEffect();
     public abstract int getMissilesPerShot();
+    public abstract int getMissileStrength();
 
     private boolean checkBounds(float x, float y) {
         if(x > 0 && x < SilentSpaceConfig.GAME_WINDOW_WIDTH &&
@@ -64,7 +65,9 @@ public abstract class Missile {
         System.out.println("Missile destroyed!");
         toRemove.reverse();
         for(int i=0;i<toRemove.size;i++) {
-            this.getMissilesInfo().removeIndex(toRemove.get(i));
+            if(toRemove.get(i) < this.getMissilesInfo().size) {
+                this.getMissilesInfo().removeIndex(toRemove.get(i));
+            }
         }
     }
 

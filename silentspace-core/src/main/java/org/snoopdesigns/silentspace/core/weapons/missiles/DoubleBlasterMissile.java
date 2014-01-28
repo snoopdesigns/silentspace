@@ -59,4 +59,9 @@ public class DoubleBlasterMissile extends Missile{
     public int getMissilesPerShot() {
         return 2;
     }
+
+    @Override
+    public int getMissileStrength() {
+        return 10;
+    }
 }

@@ -1,5 +1,6 @@
 package org.snoopdesigns.silentspace.core.levels.objects;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
@@ -9,7 +10,14 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 public abstract class LevelObject {
 
     public int objectLine = 0;
+    public int health;
     private DropDownLevelObject dropdownObject = null;
+    private Animation hitAnimation;
+
+    public LevelObject() {
+        this.health = this.getInitialHealth();
+        this.hitAnimation = this.getHitAnimation();
+    }
 
     public void setLine(int line) {
         objectLine = line;
@@ -22,7 +30,7 @@ public abstract class LevelObject {
     public DropDownLevelObject getDropdownObject() {
         return dropdownObject;
     }
-
+    public abstract int getInitialHealth();
     public abstract void process(SpriteBatch batch);
     public abstract float getX();
     public abstract float getY();
@@ -45,6 +53,26 @@ public abstract class LevelObject {
         int index = 0;
         for (int i = 0; i < frame_rows; i++) {
             for (int j = 0; j < frame_cols; j++) {
+                frames[index++] = tmp[i][j];
+            }
+        }
+        animation = new Animation(0.025f, frames);
+        return animation;
+    }
+
+    public Animation getHitAnimation() {
+        Animation animation;
+        Texture sheet;
+        TextureRegion[] frames;
+        int cols = 5;
+        int rows = 4;
+        sheet = new Texture(Gdx.files.internal("effects/animations/explosion-small.png"));
+        TextureRegion[][] tmp = TextureRegion.split(sheet,
+                sheet.getWidth()/cols, sheet.getHeight()/rows);
+        frames = new TextureRegion[cols * rows];
+        int index = 0;
+        for (int i = 0; i < rows ; i++) {
+            for (int j = 0; j < cols; j++) {
                 frames[index++] = tmp[i][j];
             }
         }
