@@ -17,11 +17,11 @@ public abstract class DropDownLevelObject extends LevelObject{
     }
 
     public void setStartX(float x) {
-        this.x = x;
+        this.x = x - texture.getWidth()/2;
     }
 
     public void setStartY(float y) {
-        this.y = y;
+        this.y = y - texture.getHeight()/2;
     }
 
     public abstract void updatePlayer(PlayerShip ship);

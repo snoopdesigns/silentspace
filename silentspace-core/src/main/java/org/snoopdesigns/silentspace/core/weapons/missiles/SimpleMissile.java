@@ -35,7 +35,7 @@ public class SimpleMissile extends Missile{
 
     @Override
     public Texture getMissileTexture() {
-        return new Texture(Gdx.files.internal("rocket.png"));
+        return new Texture(Gdx.files.internal("objects/rocket.png"));
     }
 
     @Override

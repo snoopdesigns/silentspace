@@ -40,7 +40,7 @@ public class PlayerShip {
         this.health = 170;
         playerHUD.setPlayerHealth(health);
         wepProcessor = new PlayerWeaponsProcessor(playerHUD);
-        shipTexture = new Texture(Gdx.files.internal("ship.png"));
+        shipTexture = new Texture(Gdx.files.internal("player/ship.png"));
         this.x = SilentSpaceConfig.GAME_WINDOW_WIDTH/2;
         this.y = 50;
         this.movingLeft = false;

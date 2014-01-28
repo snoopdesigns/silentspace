@@ -22,6 +22,6 @@ public class HealthItem extends DropDownLevelObject{
 
     @Override
     public Texture gerDropDownItemTexture() {
-        return new Texture(Gdx.files.internal("rocket.png"));
+        return new Texture(Gdx.files.internal("objects/dropdowns/hp_health_sprite.png"));
     }
 }

@@ -33,11 +33,11 @@ public class PlayerHUD {
     }
 
     public PlayerHUD() {
-        bgTexture = new Texture(Gdx.files.internal("hud_bg.png"));
-        ammoTexture = new Texture(Gdx.files.internal("hud1.png"));
-        weaponTexture = new Texture(Gdx.files.internal("hud2.png"));
-        healthTexture = new Texture(Gdx.files.internal("hud3.png"));
-        healthPixel = new Texture(Gdx.files.internal("health_item.png"));
+        bgTexture = new Texture(Gdx.files.internal("player/hud/hud_bg.png"));
+        ammoTexture = new Texture(Gdx.files.internal("player/hud/hud1.png"));
+        weaponTexture = new Texture(Gdx.files.internal("player/hud/hud2.png"));
+        healthTexture = new Texture(Gdx.files.internal("player/hud/hud3.png"));
+        healthPixel = new Texture(Gdx.files.internal("player/hud/health_item.png"));
         hudRenderer = new ShapeRenderer();
         font = new BitmapFont(Gdx.files.internal("fonts/calibri.fnt"),
                 Gdx.files.internal("fonts/calibri.png"),false);

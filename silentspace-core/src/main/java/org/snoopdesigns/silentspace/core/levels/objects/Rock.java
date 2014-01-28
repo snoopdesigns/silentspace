@@ -21,7 +21,7 @@ public class Rock extends LevelObject{
     public Rock() {
         this.y = SilentSpaceConfig.GAME_WINDOW_HEIGHT;
         this.x = 30;
-        rockTexture = new Sprite(new Texture(Gdx.files.internal("rock.png")));
+        rockTexture = new Sprite(new Texture(Gdx.files.internal("objects/rock.png")));
         rockTexture.setRotation(new Random().nextInt(360));
         if(new Random().nextBoolean()) {
             rotation = ROTATE_LEFT;
