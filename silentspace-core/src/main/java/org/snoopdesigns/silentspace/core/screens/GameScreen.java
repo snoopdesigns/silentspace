@@ -4,12 +4,12 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import org.snoopdesigns.silentspace.core.CollisionProcessor;
 import org.snoopdesigns.silentspace.core.InputHandler;
-import org.snoopdesigns.silentspace.core.weapons.MissilesProcessor;
-import org.snoopdesigns.silentspace.core.levels.objects.ObjectProcessor;
-import org.snoopdesigns.silentspace.core.player.PlayerShip;
 import org.snoopdesigns.silentspace.core.bg.BackgroundRenderer;
 import org.snoopdesigns.silentspace.core.levels.Level;
 import org.snoopdesigns.silentspace.core.levels.SimpleRocksLevel;
+import org.snoopdesigns.silentspace.core.levels.objects.ObjectProcessor;
+import org.snoopdesigns.silentspace.core.player.PlayerShip;
+import org.snoopdesigns.silentspace.core.weapons.MissilesProcessor;
 import org.snoopdesigns.silentspace.core.weapons.missiles.Missile;
 
 public class GameScreen extends Screen{
@@ -48,9 +48,8 @@ public class GameScreen extends Screen{
         collisionProcessor.process(batch);
         batch.end();
         bgRenderer.processStars();
-
+        fireDelay += Gdx.graphics.getDeltaTime();
         if(isShooting) {
-            fireDelay += Gdx.graphics.getDeltaTime();
             if(fireDelay > playerShip.getWepProcessor().getPlayerActiveWeaponById(
                     playerShip.getWepProcessor().getPlayerActiveWeapon()).getWeaponShotsDelay()) {
                 fireDelay = 0f;
@@ -86,7 +85,10 @@ public class GameScreen extends Screen{
         }
         if(input.isKeyReleased(InputHandler.SPACE)) {
             isShooting = false;
-            fireDelay = 1.1f;
+            if(fireDelay < playerShip.getWepProcessor().getPlayerActiveWeaponById(
+                    playerShip.getWepProcessor().getPlayerActiveWeapon()).getWeaponShotsDelay()) {
+                fireDelay = 0f;
+            }
         }
     }
 }
