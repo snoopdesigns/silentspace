@@ -82,13 +82,17 @@ public class GameScreen extends Screen{
         }
         if(input.isKeyPressed(InputHandler.SPACE)) {
             isShooting = true;
+            if(fireDelay > playerShip.getWepProcessor().getPlayerActiveWeaponById(
+                    playerShip.getWepProcessor().getPlayerActiveWeapon()).getWeaponShotsDelay()) {
+                fireDelay = 0f;
+                Missile mis = playerShip.fireActiveWeapon();
+                if(mis != null) {
+                    missilesProcessor.addActiveMissile(mis);
+                }
+            }
         }
         if(input.isKeyReleased(InputHandler.SPACE)) {
             isShooting = false;
-            if(fireDelay < playerShip.getWepProcessor().getPlayerActiveWeaponById(
-                    playerShip.getWepProcessor().getPlayerActiveWeapon()).getWeaponShotsDelay()) {
-                fireDelay = 0f;
-            }
         }
     }
 }
