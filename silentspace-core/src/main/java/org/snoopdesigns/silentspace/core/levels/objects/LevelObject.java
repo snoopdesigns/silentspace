@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import org.snoopdesigns.silentspace.core.player.PlayerShip;
 
 public abstract class LevelObject {
 
@@ -13,6 +14,7 @@ public abstract class LevelObject {
     public int health;
     private DropDownLevelObject dropdownObject = null;
     private Animation hitAnimation;
+    private PlayerShip playerShip;
 
     public LevelObject() {
         this.health = this.getInitialHealth();
@@ -27,8 +29,16 @@ public abstract class LevelObject {
         dropdownObject = object;
     }
 
+    public void setPlayerShipObject(PlayerShip ship) {
+        this.playerShip = ship;
+    }
+
     public DropDownLevelObject getDropdownObject() {
         return dropdownObject;
+    }
+
+    public PlayerShip getPlayerShip() {
+        return playerShip;
     }
     public abstract int getInitialHealth();
     public abstract void process(SpriteBatch batch);

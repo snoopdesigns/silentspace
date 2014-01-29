@@ -44,6 +44,7 @@ public abstract class Missile {
         return (getMissilesInfo().size == 0);
     }
     public abstract Missile newInstance(int x, int y);
+    public abstract Missile newInstance(int x, int y, int angle);
     public abstract Array<MissileInfo> getMissilesInfo();
     public abstract Texture getMissileTexture();
     public abstract boolean useTexture();

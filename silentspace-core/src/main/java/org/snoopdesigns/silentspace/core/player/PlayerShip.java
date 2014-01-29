@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.ParticleEffect;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import org.snoopdesigns.silentspace.core.config.SilentSpaceConfig;
+import org.snoopdesigns.silentspace.core.weapons.MissilesProcessor;
 import org.snoopdesigns.silentspace.core.weapons.PlayerWeaponsProcessor;
 import org.snoopdesigns.silentspace.core.weapons.Weapon;
 import org.snoopdesigns.silentspace.core.weapons.missiles.Missile;
@@ -13,6 +14,7 @@ public class PlayerShip {
 
     public float x;
     public float y;
+
 
     public float getHealth() {
         return health;
@@ -34,13 +36,20 @@ public class PlayerShip {
     private ParticleEffect engineRight;
     private PlayerHUD playerHUD;
 
+    public MissilesProcessor getMissilesProcessor() {
+        return missilesProcessor;
+    }
+
+    private MissilesProcessor missilesProcessor;
+
     public PlayerWeaponsProcessor getWepProcessor() {
         return wepProcessor;
     }
 
     private PlayerWeaponsProcessor wepProcessor;
 
-    public PlayerShip() {
+    public PlayerShip(MissilesProcessor mis) {
+        this.missilesProcessor = mis;
         playerHUD = new PlayerHUD();
         this.health = 170;
         playerHUD.setPlayerHealth(health);

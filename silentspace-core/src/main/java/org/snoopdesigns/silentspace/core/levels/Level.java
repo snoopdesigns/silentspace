@@ -6,6 +6,7 @@ import com.badlogic.gdx.utils.XmlReader;
 import org.snoopdesigns.silentspace.core.levels.objects.DropDownLevelObject;
 import org.snoopdesigns.silentspace.core.levels.objects.LevelObject;
 import org.snoopdesigns.silentspace.core.levels.objects.ObjectProcessor;
+import org.snoopdesigns.silentspace.core.player.PlayerShip;
 
 import java.lang.reflect.Method;
 
@@ -27,7 +28,7 @@ public abstract class Level {
         currentLine = 0;
     }
 
-    public void process(ObjectProcessor objProcessor) {
+    public void process(ObjectProcessor objProcessor, PlayerShip ship) {
         delta += Gdx.graphics.getDeltaTime();
         if(delta >  lineDelay&& currentLine < descriptionFileSize) {
             delta = 0;
@@ -42,6 +43,12 @@ public abstract class Level {
                         Method method = c.getMethod("setLine", paramTypes);
                         Object[] args = new Object[] { new Integer(i) };
                         method.invoke(obj, args);
+
+                        paramTypes = new Class[] { PlayerShip.class };
+                        method = c.getMethod("setPlayerShipObject", paramTypes);
+                        args = new Object[] { ship };
+                        method.invoke(obj, args);
+
                         if(elem.getChild(i).getAttributes().containsKey("dropdown")) {
                             System.out.println("Adding dropdown item: " + elem.getChild(i).getAttribute("dropdown"));
                             this.addDropDownObject(obj, elem.getChild(i).getAttribute("dropdown"));

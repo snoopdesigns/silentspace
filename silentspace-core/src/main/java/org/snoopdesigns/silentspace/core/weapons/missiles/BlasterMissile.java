@@ -23,6 +23,16 @@ public class BlasterMissile extends Missile{
         info.add(mis);
     }
 
+    public BlasterMissile(int x, int y, int angle) {
+        super();
+        MissileInfo mis = new MissileInfo(x+43,y+80,300,angle + 0);
+        info.add(mis);
+        mis = new MissileInfo(x+6,y+48,300,angle-30);
+        info.add(mis);
+        mis = new MissileInfo(x+79,y+48,300,angle+30);
+        info.add(mis);
+    }
+
     public BlasterMissile(int x, int y, Array<MissileInfo> missileInfo) {
         super();
         for(int i=0;i<missileInfo.size;i++) {
@@ -33,6 +43,11 @@ public class BlasterMissile extends Missile{
     @Override
     public Missile newInstance(int x, int y) {
         return new BlasterMissile(x,y);
+    }
+
+    @Override
+    public Missile newInstance(int x, int y, int angle) {
+        return new BlasterMissile(x,y, angle);
     }
 
     @Override

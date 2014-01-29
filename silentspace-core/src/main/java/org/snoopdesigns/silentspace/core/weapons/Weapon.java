@@ -37,6 +37,17 @@ public abstract class Weapon {
             return getMissileType().newInstance(x,y);
         }
     }
+
+    public Missile fire(int x, int y, int angle) {
+        if(this.missileCount < 1) {
+            return null;
+        } else {
+            missileCount --;
+            AudioProcessor.playEffect(getShotSound());
+            return getMissileType().newInstance(x,y, angle);
+        }
+    }
+
     public abstract Missile getMissileType();
     public abstract Sound getShotSound();
     public abstract float getWeaponShotsDelay();

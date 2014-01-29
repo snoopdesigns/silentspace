@@ -29,8 +29,8 @@ public class GameScreen extends Screen{
         fireDelay = 100f;
         batch = new SpriteBatch();
         bgRenderer = new BackgroundRenderer();
-        playerShip = new PlayerShip();
         missilesProcessor = new MissilesProcessor();
+        playerShip = new PlayerShip(missilesProcessor);
         level = new SimpleRocksLevel();
         objProcessor = new ObjectProcessor();
         collisionProcessor = new CollisionProcessor(objProcessor, missilesProcessor, playerShip);
@@ -42,7 +42,7 @@ public class GameScreen extends Screen{
         batch.begin();
         bgRenderer.processBackground(batch);
         missilesProcessor.process(batch);
-        level.process(objProcessor);
+        level.process(objProcessor, playerShip);
         objProcessor.process(batch);
         playerShip.processShip(batch);
         collisionProcessor.process(batch);

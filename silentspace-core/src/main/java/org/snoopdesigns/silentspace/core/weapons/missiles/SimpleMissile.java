@@ -23,9 +23,22 @@ public class SimpleMissile extends Missile{
         info.add(mis);
     }
 
+    public SimpleMissile(int x, int y, int angle) {
+        MissileInfo mis = new MissileInfo(x+43-getMissileTexture().getWidth()/2,
+                y+80-getMissileTexture().getHeight()/2,300,angle);
+        mis.centered = true;
+        mis.centerOffset = getMissileTexture().getHeight()/2;
+        info.add(mis);
+    }
+
     @Override
     public Missile newInstance(int x, int y) {
         return new SimpleMissile(x,y);
+    }
+
+    @Override
+    public Missile newInstance(int x, int y, int angle) {
+        return new SimpleMissile(x,y, angle);
     }
 
     @Override
