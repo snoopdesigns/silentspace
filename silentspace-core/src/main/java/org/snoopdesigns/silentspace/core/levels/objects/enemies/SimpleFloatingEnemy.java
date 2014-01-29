@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import org.snoopdesigns.silentspace.core.config.SilentSpaceConfig;
+import org.snoopdesigns.silentspace.core.weapons.BlasterGun;
 import org.snoopdesigns.silentspace.core.weapons.DoubleBlasterGun;
 import org.snoopdesigns.silentspace.core.weapons.Weapon;
 
@@ -19,7 +20,7 @@ public class SimpleFloatingEnemy extends EnemyShipLevelObject{
 
     @Override
     public Weapon getShipWeapon() {
-        return new DoubleBlasterGun("Dbl", 100);
+        return new BlasterGun("Dbl", 100);
     }
 
     @Override
@@ -36,7 +37,7 @@ public class SimpleFloatingEnemy extends EnemyShipLevelObject{
 
     @Override
     public float getWeaponDelay() {
-        return 2f;
+        return 1.5f;
     }
 
     @Override

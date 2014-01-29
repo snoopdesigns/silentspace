@@ -77,9 +77,12 @@ public abstract class Missile {
             float cos = yoffset/dist;
             float angleNew = 0;
             angleNew = (float)Math.toDegrees(Math.acos(cos)) + angle;
-            this.x = startPointX + (int)(Math.sin(Math.toRadians(angleNew)) * (xoffset * distanceMultiplier));
-            this.y = startPointY + (int)(Math.cos(Math.toRadians(angleNew)) * (yoffset * distanceMultiplier));
+            this.x = startPointX + (xoffset * (float)Math.cos(Math.toRadians(angle)) -
+                yoffset * (float)Math.sin(Math.toRadians(angle)));//(int)(Math.sin(Math.toRadians(angleNew)) * (xoffset * distanceMultiplier));
+            this.y = startPointY + xoffset * (float)Math.sin(Math.toRadians(angle)) +
+                    yoffset * (float)Math.cos(Math.toRadians(angle));//(int)(Math.cos(Math.toRadians(angleNew)) * (yoffset * distanceMultiplier));
             this.speed = speed;
+            System.out.println("Distance: " + dist + ", " + this.getDistance(0,0,x - startPointX,y - startPointY));
             this.angle = angle + missileAngle;
         }
         protected int speed;
