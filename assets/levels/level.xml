@@ -3,7 +3,7 @@
     <LevelLine>
         <Element action="null"/>
         <Element action="null"/>
-        <Element action="null"/>
+        <Element action="enemies.SimpleEnemy"/>
         <Element action="null"/>
         <Element action="null"/>
         <Element action="null"/>

@@ -18,7 +18,8 @@ public class PlayerWeaponsProcessor {
         playerWeapons.add(new MissileGun("Missile", 999));
         playerWeapons.add(new DoubleBlasterGun("Double", 10));
         playerWeapons.add(new BlasterGun("Blaster", 50));
-        this.setPlayerActiveWeapon(2);
+        playerWeapons.add(new DoubleBlasterGun("Double", 10));
+        this.setPlayerActiveWeapon(3);
     }
 
     public void addPlayerWeapon(Weapon weapon) {

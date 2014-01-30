@@ -15,9 +15,9 @@ public class DoubleBlasterMissile extends Missile{
 
     public DoubleBlasterMissile(int x, int y, int angle, float distanceMultiplier) {
         super();
-        MissileInfo mis = new MissileInfo(x,y,-5,50,300,angle,0,distanceMultiplier);
+        MissileInfo mis = new MissileInfo(x,y,-15,37,300,angle,0,distanceMultiplier);
         info.add(mis);
-        mis = new MissileInfo(x,y,5,50,300,angle,0,distanceMultiplier);
+        mis = new MissileInfo(x,y,15,37,300,angle,0,distanceMultiplier);
         info.add(mis);
     }
 
