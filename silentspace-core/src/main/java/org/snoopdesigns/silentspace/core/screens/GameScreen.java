@@ -34,6 +34,7 @@ public class GameScreen extends Screen{
         level = new SimpleRocksLevel();
         objProcessor = new ObjectProcessor();
         collisionProcessor = new CollisionProcessor(objProcessor, missilesProcessor, playerShip);
+        objProcessor.addLevelObject(playerShip);
     }
 
     @Override
@@ -44,7 +45,7 @@ public class GameScreen extends Screen{
         missilesProcessor.process(batch);
         level.process(objProcessor, playerShip);
         objProcessor.process(batch);
-        playerShip.processShip(batch);
+        //playerShip.processShip(batch);
         collisionProcessor.process(batch);
         batch.end();
         bgRenderer.processStars();

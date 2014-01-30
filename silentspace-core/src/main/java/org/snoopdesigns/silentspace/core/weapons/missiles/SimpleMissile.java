@@ -11,34 +11,18 @@ public class SimpleMissile extends Missile{
 
     public SimpleMissile() {
         super();
-        MissileInfo mis = new MissileInfo(0, 0, 300 ,0);
-        info.add(mis);
     }
 
-    public SimpleMissile(int x, int y) {
-        MissileInfo mis = new MissileInfo(x+43-getMissileTexture().getWidth()/2,
-                y+80-getMissileTexture().getHeight()/2,300,0);
-        mis.centered = true;
-        mis.centerOffset = getMissileTexture().getHeight()/2;
-        info.add(mis);
-    }
-
-    public SimpleMissile(int x, int y, int angle) {
-        MissileInfo mis = new MissileInfo(x+43-getMissileTexture().getWidth()/2,
-                y+80-getMissileTexture().getHeight()/2,300,angle);
+    public SimpleMissile(int x, int y, int angle, float distanceMultiplier) {
+        MissileInfo mis = new MissileInfo(x,y,0,0,200,angle,0,distanceMultiplier);
         mis.centered = true;
         mis.centerOffset = getMissileTexture().getHeight()/2;
         info.add(mis);
     }
 
     @Override
-    public Missile newInstance(int x, int y) {
-        return new SimpleMissile(x,y);
-    }
-
-    @Override
-    public Missile newInstance(int x, int y, int angle) {
-        return new SimpleMissile(x,y, angle);
+    public Missile newInstance(int x, int y, int angle, float distanceMultiplier) {
+        return new SimpleMissile(x,y, angle, distanceMultiplier);
     }
 
     @Override

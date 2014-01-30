@@ -49,7 +49,7 @@ public class PlayerWeaponsProcessor {
                 if(this.getPlayerActiveWeapon() != 0) setPlayerActiveWeapon(getPlayerActiveWeapon()-1);
                 AudioProcessor.playEffect(Gdx.audio.newSound(Gdx.files.internal("audio/effects/reload.wav")));
             }
-            Missile mis = playerWeapons.get(playerActiveWeapon).fire(x,y);
+            Missile mis = playerWeapons.get(playerActiveWeapon).fire(x,y,0,1f);
             hudInstance.setPlayerAmmoCount(String.valueOf(playerWeapons.get(playerActiveWeapon).getMissileCount()));
             return mis;
         } else {

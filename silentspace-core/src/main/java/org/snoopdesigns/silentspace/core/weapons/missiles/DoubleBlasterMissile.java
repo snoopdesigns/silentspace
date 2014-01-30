@@ -13,19 +13,11 @@ public class DoubleBlasterMissile extends Missile{
         super();
     }
 
-    public DoubleBlasterMissile(int x, int y) {
+    public DoubleBlasterMissile(int x, int y, int angle, float distanceMultiplier) {
         super();
-        MissileInfo mis = new MissileInfo(x+35,y+75,300,0);
+        MissileInfo mis = new MissileInfo(x,y,-5,50,300,angle,0,distanceMultiplier);
         info.add(mis);
-        mis = new MissileInfo(x+51,y+75,300,0);
-        info.add(mis);
-    }
-
-    public DoubleBlasterMissile(int x, int y, int angle) {
-        super();
-        MissileInfo mis = new MissileInfo(x+35,y+75,300,angle);
-        info.add(mis);
-        mis = new MissileInfo(x+51,y+75,300,angle);
+        mis = new MissileInfo(x,y,5,50,300,angle,0,distanceMultiplier);
         info.add(mis);
     }
 
@@ -37,13 +29,8 @@ public class DoubleBlasterMissile extends Missile{
     }
 
     @Override
-    public Missile newInstance(int x, int y) {
-        return new DoubleBlasterMissile(x,y);
-    }
-
-    @Override
-    public Missile newInstance(int x, int y, int angle) {
-        return new DoubleBlasterMissile(x,y, angle);
+    public Missile newInstance(int x, int y, int angle, float distanceMultiplier) {
+        return new DoubleBlasterMissile(x,y, angle, distanceMultiplier);
     }
 
     @Override

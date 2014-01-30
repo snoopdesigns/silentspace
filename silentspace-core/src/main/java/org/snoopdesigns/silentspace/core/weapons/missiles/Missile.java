@@ -43,8 +43,7 @@ public abstract class Missile {
     public boolean isMissileInactive() {
         return (getMissilesInfo().size == 0);
     }
-    public abstract Missile newInstance(int x, int y);
-    public abstract Missile newInstance(int x, int y, int angle);
+    public abstract Missile newInstance(int x, int y, int angle, float distanceMultiplier);
     public abstract Array<MissileInfo> getMissilesInfo();
     public abstract Texture getMissileTexture();
     public abstract boolean useTexture();
@@ -72,11 +71,25 @@ public abstract class Missile {
 
     public class MissileInfo {
 
-        public MissileInfo(int startPointX, int startPointY, int speed, int angle) {
-            this.x = startPointX;
-            this.y = startPointY;
+        public MissileInfo(int startPointX, int startPointY,int xoffset, int yoffset, int speed, int angle, int missileAngle, float distanceMultiplier) {
+            float dist = this.getDistance(0,0,xoffset, yoffset);
+            float sin = x/dist;
+            float cos = y/dist;
+            double ang = Math.a
+            this.x = startPointX + (int)(Math.sin(Math.toRadians(angle)) * (xoffset * distanceMultiplier));
+            this.y = startPointY + (int)(Math.cos(Math.toRadians(angle)) * (yoffset * distanceMultiplier));
+            if(xoffset < 0) {
+                System.out.println(xoffset * distanceMultiplier);
+                System.out.println(Math.toRadians(angle));
+                System.out.println(Math.sin(Math.toRadians(angle)));
+                System.out.println((int)(Math.sin(Math.toRadians(angle)) * (xoffset * distanceMultiplier)));
+            }
             this.speed = speed;
-            this.angle = angle;
+            this.angle = angle + missileAngle;
+            System.out.println("Creating missile:");
+            System.out.println("startx = " + this.x);
+            System.out.println("starty = " + this.y);
+            System.out.println("angle = " + this.angle);
         }
         protected int speed;
         protected int angle;
@@ -92,6 +105,13 @@ public abstract class Missile {
         public float getY() {
             if(centered) return y+centerOffset;
             return y;
+        }
+
+        private float getDistance(float x1, float y1, float x2, float y2) {
+            float dx = (x2-x1)*(x2-x1);
+            float dy = (y2-y1)*(y2-y1);
+            double result = Math.sqrt(dx + dy);
+            return (float)result;
         }
     }
 }

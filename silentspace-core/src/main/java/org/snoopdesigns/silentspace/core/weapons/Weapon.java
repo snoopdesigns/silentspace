@@ -28,23 +28,13 @@ public abstract class Weapon {
         this.missileCount = 10;
     }
 
-    public Missile fire(int x, int y) {
+    public Missile fire(int x, int y, int angle, float distanceMultiplier) {
         if(this.missileCount < 1) {
             return null;
         } else {
             missileCount --;
             AudioProcessor.playEffect(getShotSound());
-            return getMissileType().newInstance(x,y);
-        }
-    }
-
-    public Missile fire(int x, int y, int angle) {
-        if(this.missileCount < 1) {
-            return null;
-        } else {
-            missileCount --;
-            AudioProcessor.playEffect(getShotSound());
-            return getMissileType().newInstance(x,y, angle);
+            return getMissileType().newInstance(x,y, angle, distanceMultiplier);
         }
     }
 

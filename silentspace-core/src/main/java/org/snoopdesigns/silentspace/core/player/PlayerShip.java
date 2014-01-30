@@ -1,32 +1,33 @@
 package org.snoopdesigns.silentspace.core.player;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.ParticleEffect;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import org.snoopdesigns.silentspace.core.config.SilentSpaceConfig;
+import org.snoopdesigns.silentspace.core.levels.objects.LevelObject;
 import org.snoopdesigns.silentspace.core.weapons.MissilesProcessor;
 import org.snoopdesigns.silentspace.core.weapons.PlayerWeaponsProcessor;
 import org.snoopdesigns.silentspace.core.weapons.Weapon;
 import org.snoopdesigns.silentspace.core.weapons.missiles.Missile;
 
-public class PlayerShip {
+public class PlayerShip extends LevelObject{
 
     public float x;
     public float y;
 
 
-    public float getHealth() {
+    public int getHealth() {
         return health;
     }
 
-    public void setHealth(float health) {
+    public void setHealth(int health) {
         this.health = health;
         this.playerHUD.setPlayerHealth(health);
-        System.out.println("PLAYER HEALTH = " + health);
+        //System.out.println("PLAYER HEALTH = " + health);
     }
 
-    public float health;
     private Texture shipTexture;
     private boolean movingRight;
     private boolean movingLeft;
@@ -67,7 +68,7 @@ public class PlayerShip {
         engineRight.load(Gdx.files.internal("effects/rocket.p"), Gdx.files.internal("effects"));
     }
 
-    public void processShip(SpriteBatch batch) {
+    public void process(SpriteBatch batch) {
         batch.draw(shipTexture, this.x, this.y);
         if(this.movingLeft && checkBounds(x-SilentSpaceConfig.SHIP_MOVE_SPEED * Gdx.graphics.getDeltaTime(), y)) {
             this.x -= (SilentSpaceConfig.SHIP_MOVE_SPEED * Gdx.graphics.getDeltaTime());
@@ -87,6 +88,7 @@ public class PlayerShip {
         engineRight.setPosition(x+48,y+3);
         engineRight.update(Gdx.graphics.getDeltaTime());
         engineRight.draw(batch);
+        this.setHealth(this.health);
         playerHUD.render(batch);
     }
 
@@ -100,7 +102,7 @@ public class PlayerShip {
     }
 
     public Missile fireActiveWeapon() {
-        return wepProcessor.firePlayerActiveWeapon((int)this. x, (int)this.y);
+        return wepProcessor.firePlayerActiveWeapon((int)this.getX(), (int)this.getY());
     }
 
     public void addPlayerWeapon(Weapon weapon) {
@@ -125,5 +127,66 @@ public class PlayerShip {
     public void moveDown() {
         if(movingDown) movingDown = false;
         else movingDown = true;
+    }
+
+    @Override
+    public int getInitialHealth() {
+        return 170;
+    }
+
+    @Override
+    public float getX() {
+        return this.x + shipTexture.getWidth()/2;
+    }
+
+    @Override
+    public float getY() {
+        return this.y + shipTexture.getHeight()/2;
+    }
+
+    @Override
+    public boolean isActive() {
+        return true;
+    }
+
+    @Override
+    public void destroy() {
+
+    }
+
+    @Override
+    public FileHandle getAnimationFile() {
+        return Gdx.files.internal("effects/animations/explosion.png");
+    }
+
+    @Override
+    public int getAnimationRows() {
+        return 5;
+    }
+
+    @Override
+    public int getAnimationCols() {
+        return 4;
+    }
+
+    @Override
+    public boolean isExplodable() {
+        return true;
+    }
+
+    @Override
+    public boolean isDestroyble() {
+        return true;
+    }
+
+    @Override
+    public boolean isCatchable() {
+        return false;
+    }
+
+
+    @Override
+    public boolean isPlayerShip() {
+        return true;
     }
 }

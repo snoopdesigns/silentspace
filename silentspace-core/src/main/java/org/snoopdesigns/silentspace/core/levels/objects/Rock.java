@@ -99,4 +99,9 @@ public class Rock extends LevelObject{
     public boolean isCatchable() {
         return false;
     }
+
+    @Override
+    public boolean isPlayerShip() {
+        return false;
+    }
 }

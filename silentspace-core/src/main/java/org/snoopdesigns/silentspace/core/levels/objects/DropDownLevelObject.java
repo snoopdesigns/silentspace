@@ -35,7 +35,7 @@ public abstract class DropDownLevelObject extends LevelObject{
 
     @Override
     public float getX() {
-        return this.x + texture.getWidth()/2;  //To change body of implemented methods use File | Settings | File Templates.
+        return this.x + texture.getWidth()/2;
     }
 
     @Override
@@ -76,5 +76,11 @@ public abstract class DropDownLevelObject extends LevelObject{
     @Override
     public boolean isCatchable() {
         return true;
+    }
+
+
+    @Override
+    public boolean isPlayerShip() {
+        return false;
     }
 }

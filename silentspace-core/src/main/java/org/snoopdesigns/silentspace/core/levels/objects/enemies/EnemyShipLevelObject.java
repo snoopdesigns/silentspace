@@ -33,11 +33,11 @@ public abstract class EnemyShipLevelObject extends LevelObject{
         if(eps > this.getWeaponDelay()) {
             if(isShootingAtPlayer()) {
                 this.getPlayerShip().getMissilesProcessor().addActiveMissile(
-                        this.getShipWeapon().fire((int)getX(), (int)getY(), 180));
+                        this.getShipWeapon().fire((int)getX(), (int)getY(), 180, 1f));
+                System.out.println("Shooting at player");
             } else {
                 this.getPlayerShip().getMissilesProcessor().addActiveMissile(
-                        this.getShipWeapon().fire((int)x, (int)y, 180));
-                System.out.println("Shooting at player");
+                        this.getShipWeapon().fire((int)getX(), (int)getY(), 180, 1f));
             }
             eps = 0f;
         }
@@ -68,6 +68,12 @@ public abstract class EnemyShipLevelObject extends LevelObject{
 
     @Override
     public boolean isCatchable() {
+        return false;
+    }
+
+
+    @Override
+    public boolean isPlayerShip() {
         return false;
     }
 }
