@@ -3,9 +3,9 @@
     <LevelLine>
         <Element action="null"/>
         <Element action="null"/>
+        <Element action="enemies.SimpleFloatingEnemy"/>
+        <Element action="null"/>
         <Element action="enemies.SimpleEnemy"/>
-        <Element action="null"/>
-        <Element action="null"/>
         <Element action="null"/>
     </LevelLine>
 </Level>

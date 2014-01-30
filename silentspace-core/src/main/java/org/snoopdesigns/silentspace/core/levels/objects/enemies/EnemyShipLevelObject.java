@@ -32,8 +32,10 @@ public abstract class EnemyShipLevelObject extends LevelObject{
         eps += Gdx.graphics.getDeltaTime();
         if(eps > this.getWeaponDelay()) {
             if(isShootingAtPlayer()) {
+                float dx = Math.abs(this.getPlayerShip().getX() - getX());
+                float dy = Math.abs(this.getPlayerShip().getY() - getY());
                 this.getPlayerShip().getMissilesProcessor().addActiveMissile(
-                        this.getShipWeapon().fire((int)getX(), (int)getY(), 180, 1f));
+                        this.getShipWeapon().fire((int)getX(), (int)getY(), (int)Math.toDegrees(Math.atan(dy/dx)), 1.5f));
                 System.out.println("Shooting at player");
             } else {
                 this.getPlayerShip().getMissilesProcessor().addActiveMissile(
@@ -42,6 +44,13 @@ public abstract class EnemyShipLevelObject extends LevelObject{
             eps = 0f;
         }
         this.processMoving(batch);
+    }
+
+    private float getDistance(float x1, float y1, float x2, float y2) {
+        float dx = (x2-x1)*(x2-x1);
+        float dy = (y2-y1)*(y2-y1);
+        double result = Math.sqrt(dx + dy);
+        return (float)result;
     }
 
     public abstract float getWeaponDelay();

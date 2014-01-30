@@ -7,40 +7,41 @@ import org.snoopdesigns.silentspace.core.config.SilentSpaceConfig;
 import org.snoopdesigns.silentspace.core.weapons.DoubleBlasterGun;
 import org.snoopdesigns.silentspace.core.weapons.Weapon;
 
-public class SimpleEnemy extends EnemyShipLevelObject{
+public class SimpleFloatingEnemy extends EnemyShipLevelObject{
 
     private Texture texture;
 
-    public SimpleEnemy() {
+    public SimpleFloatingEnemy() {
         texture = new Texture(Gdx.files.internal("objects/enemy.png"));
-        this.y = SilentSpaceConfig.GAME_WINDOW_HEIGHT;
+        this.y = SilentSpaceConfig.GAME_WINDOW_HEIGHT - 90;
+        this.x = SilentSpaceConfig.GAME_WINDOW_WIDTH;
     }
 
     @Override
     public Weapon getShipWeapon() {
-        return new DoubleBlasterGun("double blaster", 500);
+        return new DoubleBlasterGun("Dbl", 100);
     }
 
     @Override
     public void processMoving(SpriteBatch batch) {
-        this.x = 18 + 70*objectLine;
-        this.y -= 1.0f;
+        this.x -= 0.5f;
+        this.y -= 0.25;
         batch.draw(texture, x, y);
     }
 
     @Override
     public boolean isShootingAtPlayer() {
-        return false;
+        return true;
+    }
+
+    @Override
+    public float getWeaponDelay() {
+        return 2f;
     }
 
     @Override
     public int getInitialHealth() {
         return 20;
-    }
-
-    @Override
-    public float getWeaponDelay() {
-        return 1.5f;
     }
 
     @Override
@@ -55,11 +56,10 @@ public class SimpleEnemy extends EnemyShipLevelObject{
 
     @Override
     public boolean isActive() {
-        return y > -70;
+        return y > -100 && x > -100;
     }
 
     @Override
     public void destroy() {
-
     }
 }
