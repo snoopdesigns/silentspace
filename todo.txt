@@ -3,3 +3,5 @@
 3. Add Text notification on Dropdown catch
 4. Fix HUD fonts (scale)
 5. Enemy ships engine particles support
+6. Enemy ships animation support
+7. FSM for levels (change levels)

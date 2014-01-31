@@ -33,28 +33,30 @@ public abstract class Level {
         if(delta >  lineDelay&& currentLine < descriptionFileSize) {
             delta = 0;
             XmlReader.Element elem = descriptionFile.getChild(currentLine);
-            for(int i=0;i<elem.getChildCount();i++) {
-                if(!elem.getChild(i).getAttribute("action").equals("null")) {
-                    try {
-                        Class c = Class.forName("org.snoopdesigns.silentspace.core.levels.objects." + elem.getChild(i).getAttribute("action"));
-                        Object obj = c.newInstance();
-                        Class[] paramTypes = new Class[] { int.class };
-                        Method method = c.getMethod("setLine", paramTypes);
-                        Object[] args = new Object[] { new Integer(i) };
-                        method.invoke(obj, args);
+            if(elem.getChildCount() != 0) {
+                for(int i=0;i<elem.getChildCount();i++) {
+                    if(!elem.getChild(i).getAttribute("action").equals("null")) {
+                        try {
+                            Class c = Class.forName("org.snoopdesigns.silentspace.core.levels.objects." + elem.getChild(i).getAttribute("action"));
+                            Object obj = c.newInstance();
+                            Class[] paramTypes = new Class[] { int.class };
+                            Method method = c.getMethod("setLine", paramTypes);
+                            Object[] args = new Object[] { new Integer(i) };
+                            method.invoke(obj, args);
 
-                        paramTypes = new Class[] { PlayerShip.class };
-                        method = c.getMethod("setPlayerShipObject", paramTypes);
-                        args = new Object[] { ship };
-                        method.invoke(obj, args);
+                            paramTypes = new Class[] { PlayerShip.class };
+                            method = c.getMethod("setPlayerShipObject", paramTypes);
+                            args = new Object[] { ship };
+                            method.invoke(obj, args);
 
-                        if(elem.getChild(i).getAttributes().containsKey("dropdown")) {
-                            System.out.println("Adding dropdown item: " + elem.getChild(i).getAttribute("dropdown"));
-                            this.addDropDownObject(obj, elem.getChild(i).getAttribute("dropdown"));
+                            if(elem.getChild(i).getAttributes().containsKey("dropdown")) {
+                                System.out.println("Adding dropdown item: " + elem.getChild(i).getAttribute("dropdown"));
+                                this.addDropDownObject(obj, elem.getChild(i).getAttribute("dropdown"));
+                            }
+                            objProcessor.addLevelObject((LevelObject)obj);
+                        } catch(Exception e) {
+                            e.printStackTrace();
                         }
-                        objProcessor.addLevelObject((LevelObject)obj);
-                    } catch(Exception e) {
-                        e.printStackTrace();
                     }
                 }
             }

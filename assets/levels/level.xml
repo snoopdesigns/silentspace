@@ -16,14 +16,7 @@
         <Element action="null"/>
         <Element action="null"/>
     </LevelLine>
-    <LevelLine>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="null"/>
-    </LevelLine>
+    <LevelLine/>
     <LevelLine>
         <Element action="null"/>
         <Element action="enemies.SimpleEnemy"/>
@@ -32,14 +25,7 @@
         <Element action="enemies.SimpleEnemy"/>
         <Element action="null"/>
     </LevelLine>
-    <LevelLine>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="null"/>
-    </LevelLine>
+    <LevelLine/>
     <LevelLine>
         <Element action="enemies.SimpleEnemy" dropdown="dropdowns.HealthItem"/>
         <Element action="null"/>
@@ -48,14 +34,7 @@
         <Element action="null"/>
         <Element action="null"/>
     </LevelLine>
-    <LevelLine>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="null"/>
-    </LevelLine>
+    <LevelLine/>
     <LevelLine>
         <Element action="null"/>
         <Element action="null"/>
@@ -64,14 +43,7 @@
         <Element action="null"/>
         <Element action="enemies.SimpleEnemy" dropdown="dropdowns.PlasmaGunDropDown"/>
     </LevelLine>
-    <LevelLine>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="null"/>
-    </LevelLine>
+    <LevelLine/>
     <LevelLine>
         <Element action="null"/>
         <Element action="enemies.SimpleFloatingEnemy"/>
@@ -80,14 +52,7 @@
         <Element action="Rock"/>
         <Element action="null"/>
     </LevelLine>
-    <LevelLine>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="null"/>
-    </LevelLine>
+    <LevelLine/>
     <LevelLine>
         <Element action="null"/>
         <Element action="null"/>
@@ -112,12 +77,5 @@
         <Element action="null"/>
         <Element action="null"/>
     </LevelLine>
-    <LevelLine>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="null"/>
-        <Element action="null"/>
-    </LevelLine>
+    <LevelLine/>>
 </Level>
