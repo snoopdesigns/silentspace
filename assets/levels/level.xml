@@ -5,7 +5,7 @@
         <Element action="Rock"/>
         <Element action="null"/>
         <Element action="null"/>
-        <Element action="Rock" dropdown="HealthItem"/>
+        <Element action="Rock" dropdown="dropdowns.HealthItem"/>
         <Element action="Rock"/>
     </LevelLine>
     <LevelLine>
@@ -38,7 +38,7 @@
         <Element action="null"/>
         <Element action="null"/>
         <Element action="null"/>
-        <Element action="enemies.SimpleEnemy" dropdown="HealthItem"/>
+        <Element action="enemies.SimpleEnemy" dropdown="dropdowns.PlasmaGunDropDown"/>
     </LevelLine>
     <LevelLine>
         <Element action="null"/>
@@ -74,7 +74,7 @@
     </LevelLine>
     <LevelLine>
         <Element action="null"/>
-        <Element action="enemies.SimpleFloatingEnemy" dropdown="HealthItem"/>
+        <Element action="enemies.SimpleFloatingEnemy" dropdown="dropdowns.HealthItem"/>
         <Element action="null"/>
         <Element action="null"/>
         <Element action="null"/>

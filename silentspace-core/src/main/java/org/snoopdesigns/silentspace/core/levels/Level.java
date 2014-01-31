@@ -35,7 +35,6 @@ public abstract class Level {
             XmlReader.Element elem = descriptionFile.getChild(currentLine);
             for(int i=0;i<elem.getChildCount();i++) {
                 if(!elem.getChild(i).getAttribute("action").equals("null")) {
-                    System.out.println("processing new object on line: " + i + ", " + elem.getChild(i).getAttribute("action"));
                     try {
                         Class c = Class.forName("org.snoopdesigns.silentspace.core.levels.objects." + elem.getChild(i).getAttribute("action"));
                         Object obj = c.newInstance();
@@ -89,8 +88,9 @@ public abstract class Level {
 
     private Object getDropDownObject(String name) {
         Object obj = null;
+        Class c;
         try {
-            Class c = Class.forName("org.snoopdesigns.silentspace.core.levels.objects." + name);
+            c = Class.forName("org.snoopdesigns.silentspace.core.levels.objects." + name);
             obj = c.newInstance();
         } catch (Exception e) {
             e.printStackTrace();

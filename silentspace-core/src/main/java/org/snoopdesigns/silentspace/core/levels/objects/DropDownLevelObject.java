@@ -34,6 +34,16 @@ public abstract class DropDownLevelObject extends LevelObject{
     }
 
     @Override
+    public int getInitialHealth() {
+        return 0;
+    }
+
+    @Override
+    public float getCollisionEspilon() {
+        return 0;
+    }
+
+    @Override
     public float getX() {
         return this.x + texture.getWidth()/2;
     }

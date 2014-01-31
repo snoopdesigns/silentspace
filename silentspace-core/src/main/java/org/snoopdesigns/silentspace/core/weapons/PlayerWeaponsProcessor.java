@@ -15,12 +15,8 @@ public class PlayerWeaponsProcessor {
     public PlayerWeaponsProcessor(PlayerHUD hud) {
         this.hudInstance = hud;
         playerWeapons = new Array<Weapon>();
-        playerWeapons.add(new MissileGun("Missile", 999));
-        playerWeapons.add(new DoubleBlasterGun("Double", 10));
-        playerWeapons.add(new BlasterGun("Blaster", 500));
         playerWeapons.add(new DoubleBlasterGun("Double", 100));
-        playerWeapons.add(new PlasmaGun("Plasma", 300));
-        this.setPlayerActiveWeapon(4);
+        this.setPlayerActiveWeapon(3);
 
     }
 

@@ -1,10 +1,11 @@
-package org.snoopdesigns.silentspace.core.levels.objects;
+package org.snoopdesigns.silentspace.core.levels.objects.dropdowns;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
+import org.snoopdesigns.silentspace.core.levels.objects.DropDownLevelObject;
 import org.snoopdesigns.silentspace.core.player.PlayerShip;
 
-public class HealthItem extends DropDownLevelObject{
+public class HealthItem extends DropDownLevelObject {
 
     private Texture texture;
 
@@ -13,17 +14,7 @@ public class HealthItem extends DropDownLevelObject{
     }
 
     @Override
-    public int getInitialHealth() {
-        return 30;
-    }
-
-    @Override
     public void destroy() {
-    }
-
-    @Override
-    public float getCollisionEspilon() {
-        return 0;
     }
 
     @Override
