@@ -12,6 +12,7 @@ public class PlayerHUD {
     private Texture bgTexture;
     private ShapeRenderer hudRenderer;
     private BitmapFont font;
+    private BitmapFont messageFont;
     private float playerHealth;
     private String playerWeaponName;
     private String playerAmmoCount;
@@ -19,6 +20,8 @@ public class PlayerHUD {
     private Texture weaponTexture;
     private Texture healthTexture;
     private Texture healthPixel;
+    private float playerTextDuration = 0f;
+    private String playerTextString = "";
 
     public void setPlayerHealth(float playerHealth) {
         this.playerHealth = playerHealth;
@@ -41,10 +44,13 @@ public class PlayerHUD {
         hudRenderer = new ShapeRenderer();
         font = new BitmapFont(Gdx.files.internal("fonts/calibri.fnt"),
                 Gdx.files.internal("fonts/calibri.png"),false);
+        messageFont = new BitmapFont(Gdx.files.internal("fonts/hud.fnt"),
+                Gdx.files.internal("fonts/hud.png"),false);
         font.setScale(0.6f, 0.6f);
     }
 
     public void render(SpriteBatch batch) {
+        font.setScale(0.6f);
         batch.draw(bgTexture, 0, SilentSpaceConfig.GAME_WINDOW_HEIGHT - bgTexture.getHeight());
         batch.draw(ammoTexture, 10, SilentSpaceConfig.GAME_WINDOW_HEIGHT - 47);
         font.draw(batch, playerAmmoCount, 58, SilentSpaceConfig.GAME_WINDOW_HEIGHT - 47 + 27);
@@ -52,6 +58,22 @@ public class PlayerHUD {
         font.draw(batch, playerWeaponName, 158, SilentSpaceConfig.GAME_WINDOW_HEIGHT - 47 + 27);
         batch.draw(healthTexture, 260, SilentSpaceConfig.GAME_WINDOW_HEIGHT - 47);
         drawHealthPixels(batch);
+        if(playerTextDuration > 0f) {
+            if(playerTextDuration < 0.2f) {
+                messageFont.setScale(playerTextDuration * 5f);
+                System.out.println("Text width = " + font.getBounds(playerTextString).width);
+            } else {
+                messageFont.setScale(1);
+                System.out.println("Text width = " + font.getBounds(playerTextString).width);
+            }
+            messageFont.draw(batch, playerTextString, SilentSpaceConfig.GAME_WINDOW_WIDTH/2 - messageFont.getBounds(playerTextString).width/2,
+                    SilentSpaceConfig.GAME_WINDOW_HEIGHT/4*3);
+            if(playerTextDuration < 2) {
+                playerTextDuration += Gdx.graphics.getDeltaTime();
+            } else {
+                playerTextDuration = 0f;
+            }
+        }
     }
 
     public void drawHealthPixels(SpriteBatch batch) {
@@ -60,5 +82,10 @@ public class PlayerHUD {
                 batch.draw(healthPixel, 268 + i*9, SilentSpaceConfig.GAME_WINDOW_HEIGHT - 47 + 6);
             }
         }
+    }
+
+    public void writePlayerText(String text) {
+        playerTextDuration = 0.1f;
+        playerTextString = text;
     }
 }

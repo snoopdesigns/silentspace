@@ -27,6 +27,7 @@ public abstract class DropDownLevelObject extends LevelObject {
 
     public abstract void updatePlayer(PlayerShip ship);
     public abstract Texture gerDropDownItemTexture();
+    public abstract String getCatchMessage();
 
     @Override
     public void process(SpriteBatch batch) {

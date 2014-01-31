@@ -66,6 +66,7 @@ public class CollisionProcessor {
                         objects.get(i).getY(), PLAYER_COLLISION_EPS)) {
                     if(objects.get(i).isCatchable() && objects.get(i) instanceof DropDownLevelObject) {
                         ((DropDownLevelObject) objects.get(i)).updatePlayer(playerShip);
+                        playerShip.getPlayerHUD().writePlayerText(((DropDownLevelObject) objects.get(i)).getCatchMessage());
                         AudioProcessor.playEffect(Gdx.audio.newSound(Gdx.files.internal("audio/effects/item_collect.wav")));
                         objects.add(new Explosion((int)playerShip.x + 42, (int)playerShip.y + 42,
                                 objects.get(i).getAnimation(objects.get(i).getAnimationCols(), objects.get(i).getAnimationRows()),

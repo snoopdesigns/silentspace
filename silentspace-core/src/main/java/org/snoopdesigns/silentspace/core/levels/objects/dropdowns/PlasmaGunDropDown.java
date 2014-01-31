@@ -15,4 +15,9 @@ public class PlasmaGunDropDown extends WeaponDropDown{
     public Texture getWeaponTexture() {
         return new Texture(Gdx.files.internal("objects/dropdowns/plasma_gun.png"));
     }
+
+    @Override
+    public String getCatchMessage() {
+        return "Plasma Gun!";
+    }
 }
