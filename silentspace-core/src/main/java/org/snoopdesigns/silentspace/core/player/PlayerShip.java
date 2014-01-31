@@ -73,6 +73,12 @@ public class PlayerShip extends LevelObject{
 
     public void process(SpriteBatch batch) {
         batch.draw(shipTexture, this.x, this.y);
+        engineLeft.setPosition(x+33,y+6);
+        engineLeft.update(Gdx.graphics.getDeltaTime());
+        engineLeft.draw(batch);
+        engineRight.setPosition(x+44,y+6);
+        engineRight.update(Gdx.graphics.getDeltaTime());
+        engineRight.draw(batch);
         if(this.movingLeft && checkBounds(x-SilentSpaceConfig.SHIP_MOVE_SPEED * Gdx.graphics.getDeltaTime(), y)) {
             this.x -= (SilentSpaceConfig.SHIP_MOVE_SPEED * Gdx.graphics.getDeltaTime());
         }
@@ -85,12 +91,6 @@ public class PlayerShip extends LevelObject{
         if(this.movingDown && checkBounds(x,y-SilentSpaceConfig.SHIP_MOVE_SPEED * 1.5f * Gdx.graphics.getDeltaTime())) {
             this.y -= (SilentSpaceConfig.SHIP_MOVE_SPEED * 1.5 * Gdx.graphics.getDeltaTime());
         }
-        engineLeft.setPosition(x+37,y+3);
-        engineLeft.update(Gdx.graphics.getDeltaTime());
-        engineLeft.draw(batch);
-        engineRight.setPosition(x+48,y+3);
-        engineRight.update(Gdx.graphics.getDeltaTime());
-        engineRight.draw(batch);
         this.setHealth(this.health);
     }
 

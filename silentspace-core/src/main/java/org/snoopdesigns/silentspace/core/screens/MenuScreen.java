@@ -25,7 +25,6 @@ public class MenuScreen extends Screen{
         bg.processBackground(batch);
         menu.processMenu(batch);
         batch.end();
-        bg.processStars();
     }
 
     @Override

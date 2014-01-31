@@ -42,13 +42,11 @@ public class GameScreen extends Screen{
         elapsed += Gdx.graphics.getDeltaTime();
         batch.begin();
         bgRenderer.processBackground(batch);
+        bgRenderer.processStars(batch);
         missilesProcessor.process(batch);
         level.process(objProcessor, playerShip);
         objProcessor.process(batch);
         collisionProcessor.process(batch);
-        batch.end();
-        bgRenderer.processStars();
-        batch.begin();
         playerShip.getPlayerHUD().render(batch);
         batch.end();
         fireDelay += Gdx.graphics.getDeltaTime();
