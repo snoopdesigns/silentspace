@@ -53,6 +53,7 @@ public abstract class LevelObject {
     public abstract boolean isDestroyble();
     public abstract boolean isCatchable();
     public abstract boolean isPlayerShip();
+    public abstract float getCollisionEspilon();
     public Animation getAnimation(int frame_cols, int frame_rows) {
         Animation animation;
         Texture sheet;

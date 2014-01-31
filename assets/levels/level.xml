@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Level name="Simple level" delay="4">
     <LevelLine>
+        <Element action="Rock"/>
+        <Element action="Rock"/>
+        <Element action="null"/>
+        <Element action="null"/>
+        <Element action="Rock" dropdown="HealthItem"/>
+        <Element action="Rock"/>
+    </LevelLine>
+    <LevelLine>
+        <Element action="null"/>
+        <Element action="null"/>
+        <Element action="null"/>
+        <Element action="null"/>
+        <Element action="null"/>
+        <Element action="null"/>
+    </LevelLine>
+    <LevelLine>
+        <Element action="null"/>
+        <Element action="null"/>
+        <Element action="Rock"/>
+        <Element action="Rock"/>
+        <Element action="null"/>
+        <Element action="null"/>
+    </LevelLine>
+    <LevelLine>
         <Element action="null"/>
         <Element action="enemies.SimpleEnemy"/>
         <Element action="null"/>
@@ -14,7 +38,7 @@
         <Element action="null"/>
         <Element action="null"/>
         <Element action="null"/>
-        <Element action="enemies.SimpleEnemy"/>
+        <Element action="enemies.SimpleEnemy" dropdown="HealthItem"/>
     </LevelLine>
     <LevelLine>
         <Element action="null"/>
@@ -50,7 +74,7 @@
     </LevelLine>
     <LevelLine>
         <Element action="null"/>
-        <Element action="enemies.SimpleFloatingEnemy"/>
+        <Element action="enemies.SimpleFloatingEnemy" dropdown="HealthItem"/>
         <Element action="null"/>
         <Element action="null"/>
         <Element action="null"/>

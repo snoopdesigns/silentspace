@@ -24,7 +24,7 @@ public class CollisionProcessor {
     private PlayerShip playerShip;
     private Array<Integer> objectsToDestroy;
     private Map<Integer, Array<Integer>> missilesToDestroy;
-    public static final float COLLISION_EPS = 15.0f;
+    public static final float COLLISION_EPS = 25.0f;
     public static final float PLAYER_COLLISION_EPS = 35.0f;
 
     public CollisionProcessor(ObjectProcessor objProcessor, MissilesProcessor misProcessor, PlayerShip playerShip) {
@@ -50,7 +50,7 @@ public class CollisionProcessor {
                                 if(objects.get(j).health < 0) {
                                     if(!objectsToDestroy.contains(j,true)) { objectsToDestroy.add(j);}
                                 } else {
-                                    objects.add(new Explosion((int)objects.get(j).getX()-2, (int)objects.get(j).getY()-6,
+                                    objects.add(new Explosion((int)missiles.get(i).getMissilesInfo().get(k).getX(), (int)missiles.get(i).getMissilesInfo().get(k).getY(),
                                             objects.get(j).getHitAnimation(), 20));
                                 }
                                     this.addMissileToDestroy(i,k);

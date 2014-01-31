@@ -9,24 +9,30 @@ import org.snoopdesigns.silentspace.core.weapons.Weapon;
 
 public class SimpleFloatingEnemy extends EnemyShipLevelObject{
 
-    private Texture texture;
+    private float dy = 0f;
 
     public SimpleFloatingEnemy() {
-        texture = new Texture(Gdx.files.internal("objects/enemy1.png"));
+        super();
         this.y = SilentSpaceConfig.GAME_WINDOW_HEIGHT - 90;
         this.x = SilentSpaceConfig.GAME_WINDOW_WIDTH;
     }
 
     @Override
     public Weapon getShipWeapon() {
-        return new DoubleBlasterGun("Dbl", 100);
+        return new DoubleBlasterGun("double blaster", 500);
     }
 
     @Override
     public void processMoving(SpriteBatch batch) {
         this.x -= 0.5f;
-        this.y -= 0.25;
-        batch.draw(texture, x, y);
+        dy +=  Gdx.graphics.getDeltaTime()/30;
+        this.y -= dy;
+        batch.draw(this.enemyTexture, x, y);
+    }
+
+    @Override
+    public Texture getEnemyTexture() {
+        return new Texture(Gdx.files.internal("objects/enemy1.png"));
     }
 
     @Override
@@ -36,22 +42,12 @@ public class SimpleFloatingEnemy extends EnemyShipLevelObject{
 
     @Override
     public float getWeaponDelay() {
-        return 1.5f;
+        return 2.5f;
     }
 
     @Override
     public int getInitialHealth() {
         return 20;
-    }
-
-    @Override
-    public float getX() {
-        return x+texture.getWidth()/2;
-    }
-
-    @Override
-    public float getY() {
-        return y+texture.getHeight()/2;
     }
 
     @Override

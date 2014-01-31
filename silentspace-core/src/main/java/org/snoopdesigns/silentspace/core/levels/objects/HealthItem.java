@@ -22,6 +22,11 @@ public class HealthItem extends DropDownLevelObject{
     }
 
     @Override
+    public float getCollisionEspilon() {
+        return 0;
+    }
+
+    @Override
     public void updatePlayer(PlayerShip ship) {
         ship.setHealth(ship.getHealth() + 25);
     }

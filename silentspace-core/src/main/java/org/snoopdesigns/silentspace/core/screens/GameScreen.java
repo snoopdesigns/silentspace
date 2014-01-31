@@ -45,10 +45,12 @@ public class GameScreen extends Screen{
         missilesProcessor.process(batch);
         level.process(objProcessor, playerShip);
         objProcessor.process(batch);
-        //playerShip.processShip(batch);
         collisionProcessor.process(batch);
         batch.end();
         bgRenderer.processStars();
+        batch.begin();
+        playerShip.getPlayerHUD().render(batch);
+        batch.end();
         fireDelay += Gdx.graphics.getDeltaTime();
         if(isShooting) {
             if(fireDelay > playerShip.getWepProcessor().getPlayerActiveWeaponById(

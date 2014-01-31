@@ -90,4 +90,9 @@ public class Explosion extends LevelObject{
     public boolean isPlayerShip() {
         return false;
     }
+
+    @Override
+    public float getCollisionEspilon() {
+        return 0;
+    }
 }

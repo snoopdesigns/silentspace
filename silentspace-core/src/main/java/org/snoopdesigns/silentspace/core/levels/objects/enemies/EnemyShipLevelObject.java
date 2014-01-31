@@ -2,6 +2,7 @@ package org.snoopdesigns.silentspace.core.levels.objects.enemies;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import org.snoopdesigns.silentspace.core.levels.objects.LevelObject;
 import org.snoopdesigns.silentspace.core.weapons.Weapon;
@@ -12,16 +13,35 @@ public abstract class EnemyShipLevelObject extends LevelObject{
     private float eps;
     protected float x;
     protected float y;
+    public Texture enemyTexture;
 
     public EnemyShipLevelObject() {
         super();
         eps = 0f;
         weapon = this.getShipWeapon();
+        enemyTexture = this.getEnemyTexture();
     }
 
     public abstract Weapon getShipWeapon();
     public abstract void processMoving(SpriteBatch batch);
     public abstract boolean isShootingAtPlayer();
+    public abstract Texture getEnemyTexture();
+
+    @Override
+    public float getX() {
+        return x+enemyTexture.getWidth()/2;
+    }
+
+    @Override
+    public float getY() {
+        return y+enemyTexture.getHeight()/2;
+    }
+
+    @Override
+    public float getCollisionEspilon() {
+        return enemyTexture.getHeight()/2 - 5f;
+    }
+
     @Override
     public FileHandle getAnimationFile() {
         return Gdx.files.internal("effects/animations/explosion.png");
@@ -45,7 +65,7 @@ public abstract class EnemyShipLevelObject extends LevelObject{
                 }
             } else {
                 this.getPlayerShip().getMissilesProcessor().addActiveMissile(
-                        this.getShipWeapon().fire((int)getX(), (int)getY(), 180, 1f));
+                        this.getShipWeapon().fire((int) getX(), (int) getY(), 180, 1f));
             }
             eps = 0f;
         }

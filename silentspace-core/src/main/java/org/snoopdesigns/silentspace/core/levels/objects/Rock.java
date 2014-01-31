@@ -104,4 +104,9 @@ public class Rock extends LevelObject{
     public boolean isPlayerShip() {
         return false;
     }
+
+    @Override
+    public float getCollisionEspilon() {
+        return rockTexture.getHeight()/2-5f;
+    }
 }

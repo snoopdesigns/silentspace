@@ -25,7 +25,6 @@ public class PlayerShip extends LevelObject{
     public void setHealth(int health) {
         this.health = health;
         this.playerHUD.setPlayerHealth(health);
-        //System.out.println("PLAYER HEALTH = " + health);
     }
 
     private Texture shipTexture;
@@ -35,6 +34,11 @@ public class PlayerShip extends LevelObject{
     private boolean movingDown;
     private ParticleEffect engineLeft;
     private ParticleEffect engineRight;
+
+    public PlayerHUD getPlayerHUD() {
+        return playerHUD;
+    }
+
     private PlayerHUD playerHUD;
 
     public MissilesProcessor getMissilesProcessor() {
@@ -89,7 +93,6 @@ public class PlayerShip extends LevelObject{
         engineRight.update(Gdx.graphics.getDeltaTime());
         engineRight.draw(batch);
         this.setHealth(this.health);
-        playerHUD.render(batch);
     }
 
     public boolean checkBounds(float x, float y) {
@@ -131,7 +134,7 @@ public class PlayerShip extends LevelObject{
 
     @Override
     public int getInitialHealth() {
-        return 170;
+        return 1700;
     }
 
     @Override
@@ -188,5 +191,10 @@ public class PlayerShip extends LevelObject{
     @Override
     public boolean isPlayerShip() {
         return true;
+    }
+
+    @Override
+    public float getCollisionEspilon() {
+        return shipTexture.getHeight()/2-5f;
     }
 }

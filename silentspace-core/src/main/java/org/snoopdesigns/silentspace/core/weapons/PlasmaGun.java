@@ -5,13 +5,13 @@ import com.badlogic.gdx.audio.Sound;
 import org.snoopdesigns.silentspace.core.weapons.missiles.Missile;
 import org.snoopdesigns.silentspace.core.weapons.missiles.PlasmaMissile;
 
-public class BlasterGun extends Weapon{
+public class PlasmaGun extends Weapon{
 
-    public BlasterGun(String weaponName, int missileCount) {
+    public PlasmaGun(String weaponName, int missileCount) {
         super(weaponName, missileCount);
     }
 
-    public BlasterGun(String weaponName) {
+    public PlasmaGun(String weaponName) {
         super(weaponName);
     }
 
@@ -27,6 +27,6 @@ public class BlasterGun extends Weapon{
 
     @Override
     public float getWeaponShotsDelay() {
-        return 0.2f;
+        return 0.3f;
     }
 }
