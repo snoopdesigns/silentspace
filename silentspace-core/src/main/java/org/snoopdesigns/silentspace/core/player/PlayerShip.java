@@ -85,11 +85,11 @@ public class PlayerShip extends LevelObject{
         if(this.movingRight && checkBounds(x+SilentSpaceConfig.SHIP_MOVE_SPEED * Gdx.graphics.getDeltaTime(),y)) {
             this.x += (SilentSpaceConfig.SHIP_MOVE_SPEED * Gdx.graphics.getDeltaTime());
         }
-        if(this.movingUp && checkBounds(x,y+SilentSpaceConfig.SHIP_MOVE_SPEED * 0.5f * Gdx.graphics.getDeltaTime())) {
-            this.y += (SilentSpaceConfig.SHIP_MOVE_SPEED * 0.5 * Gdx.graphics.getDeltaTime());
+        if(this.movingUp && checkBounds(x,y+SilentSpaceConfig.SHIP_MOVE_SPEED * 0.6f * Gdx.graphics.getDeltaTime())) {
+            this.y += (SilentSpaceConfig.SHIP_MOVE_SPEED * 0.6f * Gdx.graphics.getDeltaTime());
         }
-        if(this.movingDown && checkBounds(x,y-SilentSpaceConfig.SHIP_MOVE_SPEED * 1.5f * Gdx.graphics.getDeltaTime())) {
-            this.y -= (SilentSpaceConfig.SHIP_MOVE_SPEED * 1.5 * Gdx.graphics.getDeltaTime());
+        if(this.movingDown && checkBounds(x,y-SilentSpaceConfig.SHIP_MOVE_SPEED * 1.2f * Gdx.graphics.getDeltaTime())) {
+            this.y -= (SilentSpaceConfig.SHIP_MOVE_SPEED * 1.2f * Gdx.graphics.getDeltaTime());
         }
         this.setHealth(this.health);
     }
