@@ -3,6 +3,7 @@ package org.snoopdesigns.silentspace.core.levels.objects.enemies;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.ParticleEffect;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import org.snoopdesigns.silentspace.core.levels.objects.LevelObject;
 import org.snoopdesigns.silentspace.core.weapons.Weapon;
@@ -14,18 +15,24 @@ public abstract class EnemyShipLevelObject extends LevelObject{
     protected float x;
     protected float y;
     public Texture enemyTexture;
+    private ParticleEffect engineEffect;
 
     public EnemyShipLevelObject() {
         super();
         eps = 0f;
         weapon = this.getShipWeapon();
         enemyTexture = this.getEnemyTexture();
+        engineEffect = this.getEngineParticleEffect();
     }
 
     public abstract Weapon getShipWeapon();
-    public abstract void processMoving(SpriteBatch batch);
+    public abstract void processMoving();
     public abstract boolean isShootingAtPlayer();
     public abstract Texture getEnemyTexture();
+    public abstract boolean useParticlesForEngines();
+    public abstract ParticleEffect getEngineParticleEffect();
+    public abstract int getEngineOffsetX();
+    public abstract int getEngineOffsetY();
 
     @Override
     public float getX() {
@@ -69,14 +76,13 @@ public abstract class EnemyShipLevelObject extends LevelObject{
             }
             eps = 0f;
         }
-        this.processMoving(batch);
-    }
-
-    private float getDistance(float x1, float y1, float x2, float y2) {
-        float dx = (x2-x1)*(x2-x1);
-        float dy = (y2-y1)*(y2-y1);
-        double result = Math.sqrt(dx + dy);
-        return (float)result;
+        this.processMoving();
+        if(this.useParticlesForEngines()) {
+            engineEffect.setPosition(x + this.getEngineOffsetX(), y + this.getEngineOffsetY());
+            engineEffect.update(Gdx.graphics.getDeltaTime());
+            engineEffect.draw(batch);
+        }
+        batch.draw(enemyTexture, x, y);
     }
 
     public abstract float getWeaponDelay();

@@ -1,6 +1,4 @@
-1. Add particle effect to Rocket missile  (DONE)
 2. Add auto guidance support to missiles
-3. Add Text notification on Dropdown catch
 4. Fix HUD fonts (scale)
 5. Enemy ships engine particles support
 6. Enemy ships animation support

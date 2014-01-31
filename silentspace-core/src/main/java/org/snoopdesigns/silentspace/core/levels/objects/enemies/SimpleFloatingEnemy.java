@@ -2,7 +2,7 @@ package org.snoopdesigns.silentspace.core.levels.objects.enemies;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.ParticleEffect;
 import org.snoopdesigns.silentspace.core.config.SilentSpaceConfig;
 import org.snoopdesigns.silentspace.core.weapons.DoubleBlasterGun;
 import org.snoopdesigns.silentspace.core.weapons.Weapon;
@@ -23,16 +23,35 @@ public class SimpleFloatingEnemy extends EnemyShipLevelObject{
     }
 
     @Override
-    public void processMoving(SpriteBatch batch) {
+    public void processMoving() {
         this.x -= 0.5f;
         dy +=  Gdx.graphics.getDeltaTime()/30;
         this.y -= dy;
-        batch.draw(this.enemyTexture, x, y);
     }
 
     @Override
     public Texture getEnemyTexture() {
         return new Texture(Gdx.files.internal("objects/enemy1.png"));
+    }
+
+    @Override
+    public boolean useParticlesForEngines() {
+        return false;
+    }
+
+    @Override
+    public ParticleEffect getEngineParticleEffect() {
+        return null;
+    }
+
+    @Override
+    public int getEngineOffsetX() {
+        return 0;
+    }
+
+    @Override
+    public int getEngineOffsetY() {
+        return 0;
     }
 
     @Override
