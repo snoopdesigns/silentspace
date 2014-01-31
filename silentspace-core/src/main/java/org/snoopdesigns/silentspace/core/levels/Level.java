@@ -3,7 +3,7 @@ package org.snoopdesigns.silentspace.core.levels;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.utils.XmlReader;
-import org.snoopdesigns.silentspace.core.levels.objects.DropDownLevelObject;
+import org.snoopdesigns.silentspace.core.levels.objects.dropdowns.DropDownLevelObject;
 import org.snoopdesigns.silentspace.core.levels.objects.LevelObject;
 import org.snoopdesigns.silentspace.core.levels.objects.ObjectProcessor;
 import org.snoopdesigns.silentspace.core.player.PlayerShip;

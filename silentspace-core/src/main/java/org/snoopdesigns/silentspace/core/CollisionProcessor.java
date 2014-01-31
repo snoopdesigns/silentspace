@@ -4,7 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.Array;
 import org.snoopdesigns.silentspace.core.audio.AudioProcessor;
-import org.snoopdesigns.silentspace.core.levels.objects.DropDownLevelObject;
+import org.snoopdesigns.silentspace.core.levels.objects.dropdowns.DropDownLevelObject;
 import org.snoopdesigns.silentspace.core.levels.objects.Explosion;
 import org.snoopdesigns.silentspace.core.levels.objects.LevelObject;
 import org.snoopdesigns.silentspace.core.levels.objects.ObjectProcessor;

@@ -1,12 +1,13 @@
-package org.snoopdesigns.silentspace.core.levels.objects;
+package org.snoopdesigns.silentspace.core.levels.objects.dropdowns;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import org.snoopdesigns.silentspace.core.levels.objects.LevelObject;
 import org.snoopdesigns.silentspace.core.player.PlayerShip;
 
-public abstract class DropDownLevelObject extends LevelObject{
+public abstract class DropDownLevelObject extends LevelObject {
 
     public float x;
     public float y;

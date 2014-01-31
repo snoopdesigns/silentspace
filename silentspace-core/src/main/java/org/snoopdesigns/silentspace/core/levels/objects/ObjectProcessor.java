@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.Array;
 import org.snoopdesigns.silentspace.core.audio.AudioProcessor;
+import org.snoopdesigns.silentspace.core.levels.objects.dropdowns.DropDownLevelObject;
 
 import java.util.ArrayList;
 import java.util.List;

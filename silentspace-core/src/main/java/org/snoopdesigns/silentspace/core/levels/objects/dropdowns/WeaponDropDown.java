@@ -1,7 +1,6 @@
 package org.snoopdesigns.silentspace.core.levels.objects.dropdowns;
 
 import com.badlogic.gdx.graphics.Texture;
-import org.snoopdesigns.silentspace.core.levels.objects.DropDownLevelObject;
 import org.snoopdesigns.silentspace.core.player.PlayerShip;
 import org.snoopdesigns.silentspace.core.weapons.Weapon;
 

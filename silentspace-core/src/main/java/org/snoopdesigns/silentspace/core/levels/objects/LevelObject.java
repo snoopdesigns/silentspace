@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import org.snoopdesigns.silentspace.core.levels.objects.dropdowns.DropDownLevelObject;
 import org.snoopdesigns.silentspace.core.player.PlayerShip;
 
 public abstract class LevelObject {
