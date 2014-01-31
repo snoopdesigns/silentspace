@@ -27,6 +27,6 @@ public class BlasterGun extends Weapon{
 
     @Override
     public float getWeaponShotsDelay() {
-        return 0.6f;
+        return 0.2f;
     }
 }

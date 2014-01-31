@@ -4,7 +4,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import org.snoopdesigns.silentspace.core.config.SilentSpaceConfig;
-import org.snoopdesigns.silentspace.core.weapons.BlasterGun;
 import org.snoopdesigns.silentspace.core.weapons.DoubleBlasterGun;
 import org.snoopdesigns.silentspace.core.weapons.Weapon;
 
@@ -13,14 +12,14 @@ public class SimpleFloatingEnemy extends EnemyShipLevelObject{
     private Texture texture;
 
     public SimpleFloatingEnemy() {
-        texture = new Texture(Gdx.files.internal("objects/enemy.png"));
+        texture = new Texture(Gdx.files.internal("objects/enemy1.png"));
         this.y = SilentSpaceConfig.GAME_WINDOW_HEIGHT - 90;
         this.x = SilentSpaceConfig.GAME_WINDOW_WIDTH;
     }
 
     @Override
     public Weapon getShipWeapon() {
-        return new BlasterGun("Dbl", 100);
+        return new DoubleBlasterGun("Dbl", 100);
     }
 
     @Override

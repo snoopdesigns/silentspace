@@ -12,7 +12,7 @@ public class SimpleEnemy extends EnemyShipLevelObject{
     private Texture texture;
 
     public SimpleEnemy() {
-        texture = new Texture(Gdx.files.internal("objects/enemy.png"));
+        texture = new Texture(Gdx.files.internal("objects/enemy2.png"));
         this.y = SilentSpaceConfig.GAME_WINDOW_HEIGHT;
     }
 

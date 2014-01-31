@@ -72,17 +72,15 @@ public abstract class Missile {
     public class MissileInfo {
 
         public MissileInfo(int startPointX, int startPointY,int xoffset, int yoffset, int speed, int angle, int missileAngle, float distanceMultiplier) {
-            float dist = this.getDistance(0,0,xoffset, yoffset);
-            float sin = xoffset/dist;
-            float cos = yoffset/dist;
-            float angleNew = 0;
-            angleNew = (float)Math.toDegrees(Math.acos(cos)) + angle;
-            this.x = startPointX + (xoffset * (float)Math.cos(Math.toRadians(angle)) -
-                yoffset * (float)Math.sin(Math.toRadians(angle)));//(int)(Math.sin(Math.toRadians(angleNew)) * (xoffset * distanceMultiplier));
-            this.y = startPointY + xoffset * (float)Math.sin(Math.toRadians(angle)) +
-                    yoffset * (float)Math.cos(Math.toRadians(angle));//(int)(Math.cos(Math.toRadians(angleNew)) * (yoffset * distanceMultiplier));
+            if(distanceMultiplier > 1f) {
+                startPointX -= (int)(10*distanceMultiplier * Math.sin(Math.toRadians(-angle)));
+                startPointY += (int)(10*distanceMultiplier * Math.cos(Math.toRadians(-angle)));
+            }
+            this.x = startPointX + xoffset * (float)Math.cos(Math.toRadians(-angle)) -
+                yoffset * (float)Math.sin(Math.toRadians(-angle));
+            this.y = startPointY + xoffset * (float)Math.sin(Math.toRadians(-angle)) +
+                    yoffset * (float)Math.cos(Math.toRadians(-angle));
             this.speed = speed;
-            System.out.println("Distance: " + dist + ", " + this.getDistance(0,0,x - startPointX,y - startPointY));
             this.angle = angle + missileAngle;
         }
         protected int speed;

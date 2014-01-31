@@ -35,17 +35,14 @@ public abstract class EnemyShipLevelObject extends LevelObject{
                 float dx = Math.abs(this.getPlayerShip().getX() - getX());
                 float dy = Math.abs(this.getPlayerShip().getY() - getY());
                 float dist = (float)Math.sqrt(dx*dx+dy*dy);
-
                 int angle = (int)Math.toDegrees(Math.acos(dy/dist));
-                System.out.println("Angle = " + angle);
                 if(this.getPlayerShip().getX() < this.getX()) {
                 this.getPlayerShip().getMissilesProcessor().addActiveMissile(
-                        this.getShipWeapon().fire((int)getX(), (int)getY(),180 - angle, 1.5f));
+                        this.getShipWeapon().fire((int)getX(), (int)getY(),180 + angle, 3f));
                 } else {
                     this.getPlayerShip().getMissilesProcessor().addActiveMissile(
-                            this.getShipWeapon().fire((int)getX(), (int)getY(),180 - angle, 1.5f));
+                            this.getShipWeapon().fire((int)getX(), (int)getY(),180 - angle, 3f));
                 }
-                System.out.println("Shooting at player");
             } else {
                 this.getPlayerShip().getMissilesProcessor().addActiveMissile(
                         this.getShipWeapon().fire((int)getX(), (int)getY(), 180, 1f));
