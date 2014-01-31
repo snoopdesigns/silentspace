@@ -54,4 +54,24 @@ public class PlasmaMissile extends Missile{
     public int getMissileStrength() {
         return 20;
     }
+
+    @Override
+    public boolean useParticlesForTexture() {
+        return false;
+    }
+
+    @Override
+    public ParticleEffect getParticleEffectForTexture() {
+        return null;
+    }
+
+    @Override
+    public int getParticleTextureOffsetX() {
+        return 0;
+    }
+
+    @Override
+    public int getParticleTextureOffsetY() {
+        return 0;
+    }
 }

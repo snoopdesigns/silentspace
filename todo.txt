@@ -1,3 +1,2 @@
-1. Delay between shots
-2. Levels changing (FSM)
-3. LevelObject health support
+1. Add particle effect to Rocket missile
+2. Add auto guidance support to missiles

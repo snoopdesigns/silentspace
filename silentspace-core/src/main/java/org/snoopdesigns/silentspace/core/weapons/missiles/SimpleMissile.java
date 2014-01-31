@@ -12,7 +12,7 @@ public class SimpleMissile extends Missile{
 
     public SimpleMissile(int x, int y, int angle, float distanceMultiplier) {
         super();
-        MissileInfo mis = new MissileInfo(x,y,0,0,200,angle,0,distanceMultiplier);
+        MissileInfo mis = new MissileInfo(x,y,0 -  getMissileTexture().getHeight()/2,37,200,angle,0,distanceMultiplier);
         mis.centered = true;
         mis.centerOffset = getMissileTexture().getHeight()/2;
         info.add(mis);
@@ -46,5 +46,27 @@ public class SimpleMissile extends Missile{
     @Override
     public int getMissileStrength() {
         return 5;
+    }
+
+    @Override
+    public boolean useParticlesForTexture() {
+        return true;
+    }
+
+    @Override
+    public ParticleEffect getParticleEffectForTexture() {
+        ParticleEffect effect = new ParticleEffect();
+        effect.load(Gdx.files.internal("effects/rocket.p"), Gdx.files.internal("effects"));
+        return effect;
+    }
+
+    @Override
+    public int getParticleTextureOffsetX() {
+        return getMissileTexture().getWidth()/2;
+    }
+
+    @Override
+    public int getParticleTextureOffsetY() {
+        return 0;
     }
 }

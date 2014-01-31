@@ -11,6 +11,7 @@ public abstract class Missile {
 
     private Array<ParticleEffect> particleEffects;
     public Array<MissileInfo> info = new Array<MissileInfo>();
+    private ParticleEffect textureParticleEffect;
 
     public Missile() {
         if(!this.useTexture()) {
@@ -18,6 +19,9 @@ public abstract class Missile {
             for(int i=0;i<this.getMissilesPerShot();i++) {
                 particleEffects.add(this.getParticleEffect());
             }
+        }
+        if(this.useParticlesForTexture()) {
+            this.textureParticleEffect = this.getParticleEffectForTexture();
         }
     }
 
@@ -29,6 +33,12 @@ public abstract class Missile {
             if(this.useTexture()) {
                 batch.draw(this.getMissileTexture(), this.getMissilesInfo().get(i).x,
                         this.getMissilesInfo().get(i).y);
+                if(this.useParticlesForTexture()) {
+                    textureParticleEffect.setPosition(this.getMissilesInfo().get(i).x + this.getParticleTextureOffsetX(),
+                            this.getMissilesInfo().get(i).y + this.getParticleTextureOffsetY());
+                    textureParticleEffect.update(Gdx.graphics.getDeltaTime());
+                    textureParticleEffect.draw(batch);
+                }
             } else {
                 particleEffects.get(i).setPosition(this.getMissilesInfo().get(i).x, this.getMissilesInfo().get(i).y);
                 particleEffects.get(i).update(Gdx.graphics.getDeltaTime());
@@ -55,6 +65,10 @@ public abstract class Missile {
     public abstract ParticleEffect getParticleEffect();
     public abstract int getMissilesPerShot();
     public abstract int getMissileStrength();
+    public abstract boolean useParticlesForTexture();
+    public abstract ParticleEffect getParticleEffectForTexture();
+    public abstract int getParticleTextureOffsetX();
+    public abstract int getParticleTextureOffsetY();
 
     private boolean checkBounds(float x, float y) {
         if(x > 0 && x < SilentSpaceConfig.GAME_WINDOW_WIDTH &&
