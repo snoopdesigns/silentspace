@@ -10,6 +10,7 @@ import org.snoopdesigns.silentspace.core.config.SilentSpaceConfig;
 public abstract class Missile {
 
     private Array<ParticleEffect> particleEffects;
+    public Array<MissileInfo> info = new Array<MissileInfo>();
 
     public Missile() {
         if(!this.useTexture()) {
@@ -40,11 +41,15 @@ public abstract class Missile {
             }
         }
     }
+
+    public Array<MissileInfo> getMissilesInfo() {
+        return info;
+    }
+
     public boolean isMissileInactive() {
         return (getMissilesInfo().size == 0);
     }
     public abstract Missile newInstance(int x, int y, int angle, float distanceMultiplier);
-    public abstract Array<MissileInfo> getMissilesInfo();
     public abstract Texture getMissileTexture();
     public abstract boolean useTexture();
     public abstract ParticleEffect getParticleEffect();

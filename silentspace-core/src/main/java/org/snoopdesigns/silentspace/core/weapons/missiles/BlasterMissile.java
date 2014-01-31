@@ -3,11 +3,8 @@ package org.snoopdesigns.silentspace.core.weapons.missiles;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.ParticleEffect;
-import com.badlogic.gdx.utils.Array;
 
 public class BlasterMissile extends Missile{
-
-    Array<MissileInfo> info = new Array<MissileInfo>();
 
     public BlasterMissile() {
         super();
@@ -24,21 +21,9 @@ public class BlasterMissile extends Missile{
         info.add(mis);
     }
 
-    public BlasterMissile(int x, int y, Array<MissileInfo> missileInfo) {
-        super();
-        for(int i=0;i<missileInfo.size;i++) {
-            info.add(missileInfo.get(i));
-        }
-    }
-
     @Override
     public Missile newInstance(int x, int y, int angle, float distanceMultiplier) {
         return new BlasterMissile(x,y, angle, distanceMultiplier);
-    }
-
-    @Override
-    public Array<MissileInfo> getMissilesInfo() {
-        return info;
     }
 
     @Override

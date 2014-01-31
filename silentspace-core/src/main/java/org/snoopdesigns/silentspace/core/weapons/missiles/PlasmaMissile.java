@@ -3,11 +3,8 @@ package org.snoopdesigns.silentspace.core.weapons.missiles;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.ParticleEffect;
-import com.badlogic.gdx.utils.Array;
 
 public class PlasmaMissile extends Missile{
-
-    Array<MissileInfo> info = new Array<MissileInfo>();
 
     public PlasmaMissile() {
         super();
@@ -29,11 +26,6 @@ public class PlasmaMissile extends Missile{
     @Override
     public Missile newInstance(int x, int y, int angle, float distanceMultiplier) {
         return new PlasmaMissile(x,y,angle,distanceMultiplier);
-    }
-
-    @Override
-    public Array<MissileInfo> getMissilesInfo() {
-        return info;
     }
 
     @Override

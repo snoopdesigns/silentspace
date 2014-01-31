@@ -7,8 +7,6 @@ import com.badlogic.gdx.utils.Array;
 
 public class DoubleBlasterMissile extends Missile{
 
-    Array<MissileInfo> info = new Array<MissileInfo>();
-
     public DoubleBlasterMissile() {
         super();
     }
@@ -32,11 +30,6 @@ public class DoubleBlasterMissile extends Missile{
     @Override
     public Missile newInstance(int x, int y, int angle, float distanceMultiplier) {
         return new DoubleBlasterMissile(x,y, angle, distanceMultiplier);
-    }
-
-    @Override
-    public Array<MissileInfo> getMissilesInfo() {
-        return info;
     }
 
     @Override
