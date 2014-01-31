@@ -2,22 +2,22 @@ package org.snoopdesigns.silentspace.core.weapons;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Sound;
+import org.snoopdesigns.silentspace.core.weapons.missiles.TripleBlasterMissile;
 import org.snoopdesigns.silentspace.core.weapons.missiles.Missile;
-import org.snoopdesigns.silentspace.core.weapons.missiles.PlasmaMissile;
 
-public class PlasmaGun extends Weapon{
+public class TripleBlasterGun extends Weapon{
 
-    public PlasmaGun(String weaponName, int missileCount) {
+    public TripleBlasterGun(String weaponName, int missileCount) {
         super(weaponName, missileCount);
     }
 
-    public PlasmaGun(String weaponName) {
+    public TripleBlasterGun(String weaponName) {
         super(weaponName);
     }
 
     @Override
     public Missile getMissileType() {
-        return new PlasmaMissile();
+        return new TripleBlasterMissile();
     }
 
     @Override
@@ -27,6 +27,6 @@ public class PlasmaGun extends Weapon{
 
     @Override
     public float getWeaponShotsDelay() {
-        return 0.4f;
+        return 0.6f;
     }
 }

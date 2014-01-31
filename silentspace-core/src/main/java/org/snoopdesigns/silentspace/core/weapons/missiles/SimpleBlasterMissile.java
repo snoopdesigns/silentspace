@@ -4,26 +4,22 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.ParticleEffect;
 
-public class BlasterMissile extends Missile{
+public class SimpleBlasterMissile extends Missile{
 
-    public BlasterMissile() {
+    public SimpleBlasterMissile() {
         super();
     }
 
-    public BlasterMissile(int x, int y, int angle, float distanceMultiplier) {
+    public SimpleBlasterMissile(int x, int y, int angle, float distanceMultiplier) {
         super();
-        int speed = 300;
+        int speed = 250;
         MissileInfo mis = new MissileInfo(x,y,0,37,speed,angle,0,distanceMultiplier);
-        info.add(mis);
-        mis = new MissileInfo(x,y,37,3,speed,angle,30,distanceMultiplier);
-        info.add(mis);
-        mis = new MissileInfo(x,y,-37,3,speed,angle,-30,distanceMultiplier);
         info.add(mis);
     }
 
     @Override
     public Missile newInstance(int x, int y, int angle, float distanceMultiplier) {
-        return new BlasterMissile(x,y, angle, distanceMultiplier);
+        return new SimpleBlasterMissile(x,y,angle,distanceMultiplier);
     }
 
     @Override
@@ -39,18 +35,18 @@ public class BlasterMissile extends Missile{
     @Override
     public ParticleEffect getParticleEffect() {
         ParticleEffect effect = new ParticleEffect();
-        effect.load(Gdx.files.internal("weapons/blaster.p"), Gdx.files.internal("weapons"));
+        effect.load(Gdx.files.internal("weapons/simple.p"), Gdx.files.internal("weapons"));
         return effect;
     }
 
     @Override
     public int getMissilesPerShot() {
-        return 3;
+        return 1;
     }
 
     @Override
     public int getMissileStrength() {
-        return 10;
+        return 20;
     }
 
     @Override

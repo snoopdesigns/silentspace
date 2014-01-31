@@ -5,7 +5,119 @@
         <Element action="Rock"/>
         <Element action="null"/>
         <Element action="null"/>
-        <Element action="Rock" dropdown="dropdowns.HealthItem"/>
         <Element action="Rock"/>
+        <Element action="Rock"/>
+    </LevelLine>
+    <LevelLine>
+        <Element action="null"/>
+        <Element action="null"/>
+        <Element action="Rock"/>
+        <Element action="Rock"/>
+        <Element action="null"/>
+        <Element action="null"/>
+    </LevelLine>
+    <LevelLine>
+        <Element action="null"/>
+        <Element action="null"/>
+        <Element action="null"/>
+        <Element action="null"/>
+        <Element action="null"/>
+        <Element action="null"/>
+    </LevelLine>
+    <LevelLine>
+        <Element action="null"/>
+        <Element action="enemies.SimpleEnemy"/>
+        <Element action="null"/>
+        <Element action="null"/>
+        <Element action="enemies.SimpleEnemy"/>
+        <Element action="null"/>
+    </LevelLine>
+    <LevelLine>
+        <Element action="null"/>
+        <Element action="null"/>
+        <Element action="null"/>
+        <Element action="null"/>
+        <Element action="null"/>
+        <Element action="null"/>
+    </LevelLine>
+    <LevelLine>
+        <Element action="enemies.SimpleEnemy" dropdown="dropdowns.HealthItem"/>
+        <Element action="null"/>
+        <Element action="null"/>
+        <Element action="null"/>
+        <Element action="null"/>
+        <Element action="null"/>
+    </LevelLine>
+    <LevelLine>
+        <Element action="null"/>
+        <Element action="null"/>
+        <Element action="null"/>
+        <Element action="null"/>
+        <Element action="null"/>
+        <Element action="null"/>
+    </LevelLine>
+    <LevelLine>
+        <Element action="null"/>
+        <Element action="null"/>
+        <Element action="null"/>
+        <Element action="null"/>
+        <Element action="null"/>
+        <Element action="enemies.SimpleEnemy" dropdown="dropdowns.PlasmaGunDropDown"/>
+    </LevelLine>
+    <LevelLine>
+        <Element action="null"/>
+        <Element action="null"/>
+        <Element action="null"/>
+        <Element action="null"/>
+        <Element action="null"/>
+        <Element action="null"/>
+    </LevelLine>
+    <LevelLine>
+        <Element action="null"/>
+        <Element action="enemies.SimpleFloatingEnemy"/>
+        <Element action="null"/>
+        <Element action="null"/>
+        <Element action="Rock"/>
+        <Element action="null"/>
+    </LevelLine>
+    <LevelLine>
+        <Element action="null"/>
+        <Element action="null"/>
+        <Element action="null"/>
+        <Element action="null"/>
+        <Element action="null"/>
+        <Element action="null"/>
+    </LevelLine>
+    <LevelLine>
+        <Element action="null"/>
+        <Element action="null"/>
+        <Element action="enemies.SimpleFloatingEnemy"/>
+        <Element action="null"/>
+        <Element action="null"/>
+        <Element action="null"/>
+    </LevelLine>
+    <LevelLine>
+        <Element action="null"/>
+        <Element action="null"/>
+        <Element action="Rock"/>
+        <Element action="null"/>
+        <Element action="null"/>
+        <Element action="null"/>
+    </LevelLine>
+    <LevelLine>
+        <Element action="null"/>
+        <Element action="null"/>
+        <Element action="enemies.SimpleFloatingEnemy"/>
+        <Element action="null"/>
+        <Element action="null"/>
+        <Element action="null"/>
+    </LevelLine>
+    <LevelLine>
+        <Element action="null"/>
+        <Element action="null"/>
+        <Element action="null"/>
+        <Element action="null"/>
+        <Element action="null"/>
+        <Element action="null"/>
     </LevelLine>
 </Level>
