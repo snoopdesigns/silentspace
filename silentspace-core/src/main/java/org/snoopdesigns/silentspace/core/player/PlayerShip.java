@@ -8,7 +8,6 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import org.snoopdesigns.silentspace.core.config.SilentSpaceConfig;
 import org.snoopdesigns.silentspace.core.levels.objects.LevelObject;
 import org.snoopdesigns.silentspace.core.weapons.MissilesProcessor;
-import org.snoopdesigns.silentspace.core.weapons.PlayerWeaponsProcessor;
 import org.snoopdesigns.silentspace.core.weapons.Weapon;
 import org.snoopdesigns.silentspace.core.weapons.missiles.Missile;
 

@@ -18,12 +18,12 @@ public abstract class Weapon {
 
     private int missileCount;
 
-    protected Weapon(String weaponName, int missileCount) {
+    public Weapon(String weaponName, int missileCount) {
         this.weaponName = weaponName;
         this.missileCount = missileCount;
     }
 
-    protected Weapon(String weaponName) {
+    public Weapon(String weaponName) {
         this.weaponName = weaponName;
         this.missileCount = 10;
     }

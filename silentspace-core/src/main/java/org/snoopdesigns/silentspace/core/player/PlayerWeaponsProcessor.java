@@ -1,9 +1,12 @@
-package org.snoopdesigns.silentspace.core.weapons;
+package org.snoopdesigns.silentspace.core.player;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.utils.Array;
 import org.snoopdesigns.silentspace.core.audio.AudioProcessor;
 import org.snoopdesigns.silentspace.core.player.PlayerHUD;
+import org.snoopdesigns.silentspace.core.weapons.SimpleBlasterGun;
+import org.snoopdesigns.silentspace.core.weapons.TripleBlasterGun;
+import org.snoopdesigns.silentspace.core.weapons.Weapon;
 import org.snoopdesigns.silentspace.core.weapons.missiles.Missile;
 
 public class PlayerWeaponsProcessor {

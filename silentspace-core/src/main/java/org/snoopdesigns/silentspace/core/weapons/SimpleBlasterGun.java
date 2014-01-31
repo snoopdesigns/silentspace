@@ -7,7 +7,7 @@ import org.snoopdesigns.silentspace.core.weapons.missiles.SimpleBlasterMissile;
 
 public class SimpleBlasterGun extends Weapon{
 
-    protected SimpleBlasterGun(String weaponName, int missileCount) {
+    public SimpleBlasterGun(String weaponName, int missileCount) {
         super(weaponName, missileCount);
     }
 
