@@ -14,9 +14,3 @@ silentspace-dist/dist
 # java class files #
 #######################
 *.class
-
-# Package Files #
-#######################
-*.jar
-*.war
-*.ear

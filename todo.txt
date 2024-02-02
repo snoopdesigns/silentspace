@@ -1,6 +1,0 @@
-2. Add auto guidance support to missiles
-4. Fix HUD fonts (scale)
-5. Player shield
-5. Enemy ships engine particles support (DONE)
-6. Enemy ships animation support
-7. FSM for levels (change levels)
